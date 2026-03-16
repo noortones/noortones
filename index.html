@@ -1,31 +1,37 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Noor Tones</title>
 <meta name="theme-color" content="#2563eb">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="./style.css">
 </head>
 <body>
 
 <header class="header">
   <div class="menu-btn" onclick="toggleMenu()">☰</div>
-  <h1>Noor Tones</h1>
+  <h1 class="logo">Noor Tones</h1>
   <div class="social">
-    <a href="#">📷</a>
-    <a href="#">▶</a>
+    <a href="https://instagram.com/yourprofile" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram" class="social-icon">
+    </a>
+    <a href="https://youtube.com/yourchannel" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube" class="social-icon">
+    </a>
   </div>
 </header>
 
+<!-- Side Menu -->
+<nav id="sideMenu" class="side-menu">
+  <a href="./index.html">Home</a>
+  <a href="./index.html#about">About</a>
+  <a href="./index.html#contact">Contact</a>
+</nav>
+
 <!-- ADS_PLACE_HEADER -->
 <div class="ad">ADS_PLACE_HEADER</div>
-
-<div id="sideMenu" class="side-menu">
-  <a href="#">Home</a>
-  <a href="#">About</a>
-  <a href="#">Contact</a>
-</div>
 
 <div class="categories">
   <span onclick="filterCategory('all')">Trending</span>
@@ -59,5 +65,10 @@
 </footer>
 
 <script src="./script.js"></script>
+<script>
+function toggleMenu() {
+  document.getElementById('sideMenu').classList.toggle('show');
+}
+</script>
 </body>
 </html>
