@@ -1,14 +1,26 @@
-fetch("ringtones.json")
+const ringtones = [
 
-.then(res=>res.json())
+{
+title:"iPhone Reflection",
+file:"iphone.mp3",
+duration:"25",
+category:"iphone",
+trending:true
+},
 
-.then(data=>{
+{
+title:"Notification Tone",
+file:"notify.mp3",
+duration:"10",
+category:"notification"
+}
+
+]
 
 let all=document.getElementById("all")
-
 let trending=document.getElementById("trending")
 
-data.forEach(r=>{
+ringtones.forEach(r=>{
 
 let card=document.createElement("div")
 
@@ -22,15 +34,13 @@ card.innerHTML=`
 
 <div>⏱ ${r.duration}s</div>
 
-<a class="download">Download</a>
+<button class="download">Download</button>
 
 `
 
 card.querySelector(".download").onclick=function(e){
 
 e.preventDefault()
-
-/* ADS_PLACE_DOWNLOAD */
 
 window.open("ADS_PLACE_DOWNLOAD_LINK")
 
@@ -55,7 +65,5 @@ if(r.trending){
 trending.appendChild(card.cloneNode(true))
 
 }
-
-})
 
 })
