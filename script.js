@@ -1,10 +1,10 @@
 const ringtones = [
 
 {
-title:"iPhone Reflection",
-file:"iphone.mp3",
+title:"New Mobile Ringtone",
+file:"new ringtone 2026.mp3",
 duration:"25",
-category:"iphone",
+category:"Mobile Ringtones",
 trending:true
 },
 
