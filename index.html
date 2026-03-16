@@ -1,40 +1,90 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>My Ringtones</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Noor Tones - Ringtones</title>
 <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<h1>My Ringtones</h1>
+<header>
+  <h1>Noor Tones</h1>
+  <p>Professional Ringtones, Free to Play & Download</p>
+</header>
 
-<div id="ringtone-list"></div>
+<!-- Search Bar -->
+<div class="search-container">
+  <input type="text" id="search-input" placeholder="Search ringtones...">
+</div>
+
+<!-- Trending Section -->
+<section>
+  <h2>Trending Ringtones</h2>
+  <div id="trending-list" class="card-container"></div>
+</section>
+
+<!-- All Ringtones -->
+<section>
+  <h2>All Ringtones</h2>
+  <div id="ringtone-list" class="card-container"></div>
+</section>
 
 <script>
+let allRingtones = [];
 
 fetch("ringtones.json")
 .then(res => res.json())
 .then(data => {
+  allRingtones = data;
+  displayTrending();
+  displayRingtones(allRingtones);
+});
 
-let container = document.getElementById("ringtone-list");
+// Display All Ringtones
+function displayRingtones(ringtones) {
+  let container = document.getElementById("ringtone-list");
+  container.innerHTML = "";
+  ringtones.forEach(r => {
+    let card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = `
+      <h3>${r.title}</h3>
+      <audio controls src="${r.file}"></audio>
+      <br>
+      <a href="${r.file}" download class="download-btn">Download</a>
+    `;
+    container.appendChild(card);
+  });
+}
 
-data.forEach(r => {
+// Display Trending (first 3 ringtones)
+function displayTrending() {
+  let container = document.getElementById("trending-list");
+  container.innerHTML = "";
+  allRingtones.slice(0,3).forEach(r => {
+    let card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = `
+      <h3>${r.title}</h3>
+      <audio controls src="${r.file}"></audio>
+      <br>
+      <a href="${r.file}" download class="download-btn">Download</a>
+    `;
+    container.appendChild(card);
+  });
+}
 
-let div = document.createElement("div");
+// Search Function
+document.getElementById("search-input").addEventListener("input", function() {
+  let query = this.value.toLowerCase();
+  let filtered = allRingtones.filter(r => r.title.toLowerCase().includes(query));
+  displayRingtones(filtered);
+});
+</script>
 
-div.innerHTML = `
-<h3>${r.title}</h3>
-
-<audio controls src="${r.file}"></audio>
-
-<br>
-
-<a href="${r.file}" download>Download</a>
-
-<hr>
-`;
-
+</body>
+</html>
 container.appendChild(div);
 
 });
