@@ -44,12 +44,12 @@ fetch("ringtones.json")
 });
 
 function displayRingtones(ringtones){
-  let container = document.getElementById("ringtone-list");
+  const container = document.getElementById("ringtone-list");
   container.innerHTML = "";
   ringtones.forEach(r=>{
-    let card = document.createElement("div");
-    card.className="card";
-    card.innerHTML=`
+    const card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = `
       <h3>${r.title}</h3>
       <audio controls src="${r.file}"></audio>
       <a href="${r.file}" download class="download-btn">Download</a>
@@ -59,12 +59,12 @@ function displayRingtones(ringtones){
 }
 
 function displayTrending(){
-  let container = document.getElementById("trending-list");
+  const container = document.getElementById("trending-list");
   container.innerHTML = "";
   allRingtones.slice(0,5).forEach(r=>{
-    let card = document.createElement("div");
-    card.className="card trending-card";
-    card.innerHTML=`
+    const card = document.createElement("div");
+    card.className = "card trending-card";
+    card.innerHTML = `
       <h3>${r.title}</h3>
       <audio controls src="${r.file}"></audio>
       <a href="${r.file}" download class="download-btn">Download</a>
@@ -73,10 +73,9 @@ function displayTrending(){
   });
 }
 
-// Search functionality
 document.getElementById("search-input").addEventListener("input", function(){
-  let query = this.value.toLowerCase();
-  let filtered = allRingtones.filter(r=>r.title.toLowerCase().includes(query));
+  const query = this.value.toLowerCase();
+  const filtered = allRingtones.filter(r=>r.title.toLowerCase().includes(query));
   displayRingtones(filtered);
 });
 </script>
