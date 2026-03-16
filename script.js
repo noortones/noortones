@@ -16,7 +16,6 @@ fetch("./ringtones.json")
 
     card.querySelector(".download").onclick=function(e){
       e.preventDefault()
-      /* ADS_PLACE_DOWNLOAD */
       window.open("ADS_PLACE_DOWNLOAD_LINK")
       setTimeout(()=>{window.location.href="./audio/"+r.file},3000)
     }
@@ -29,3 +28,18 @@ fetch("./ringtones.json")
     if(r.trending){ trending.appendChild(card.cloneNode(true)) }
   })
 })
+
+// Search filter
+document.getElementById("search").addEventListener("input",function(){
+  let val=this.value.toLowerCase()
+  document.querySelectorAll(".card").forEach(card=>{
+    card.style.display = card.querySelector("h3").innerText.toLowerCase().includes(val) ? "" : "none"
+  })
+})
+
+function filterCategory(cat){
+  document.querySelectorAll(".card").forEach(card=>{
+    if(cat=="all"){ card.style.display="" }
+    else{ card.style.display=card.querySelector("audio").src.includes(cat)?"":"none" }
+  })
+}
