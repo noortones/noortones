@@ -9,7 +9,6 @@ fetch("./ringtones.json")
   document.getElementById("player").src="./audio/"+tone.file
   document.getElementById("download").onclick=function(e){
     e.preventDefault()
-    /* ADS_PLACE_DOWNLOAD */
     window.open("ADS_PLACE_DOWNLOAD_LINK")
     setTimeout(()=>{window.location.href="./audio/"+tone.file},3000)
   }
