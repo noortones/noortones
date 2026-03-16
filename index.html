@@ -11,9 +11,6 @@
 <header>
   <h1>Noor Tones</h1>
   <p>Professional Ringtones, Free to Play & Download</p>
-  <div class="toggle-container">
-    <button id="theme-toggle">Dark / Light Mode</button>
-  </div>
 </header>
 
 <!-- Search Bar -->
@@ -84,12 +81,6 @@ document.getElementById("search-input").addEventListener("input", function() {
   let query = this.value.toLowerCase();
   let filtered = allRingtones.filter(r => r.title.toLowerCase().includes(query));
   displayRingtones(filtered);
-});
-
-// Dark/Light mode toggle
-const toggleBtn = document.getElementById('theme-toggle');
-toggleBtn.addEventListener('click', () => {
-  document.body.classList.toggle('dark-mode');
 });
 </script>
 
