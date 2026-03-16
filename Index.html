@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Noor Tones - Professional Ringtones</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>Noor Tones</h1>
+  <p>Free Professional Ringtones, Play & Download</p>
+</header>
+
+<div class="search-container">
+  <input type="text" id="search-input" placeholder="Search ringtones...">
+</div>
+
+<section>
+  <h2>Trending Ringtones</h2>
+  <div id="trending-list" class="card-container trending"></div>
+</section>
+
+<section>
+  <h2>All Ringtones</h2>
+  <div id="ringtone-list" class="card-container"></div>
+</section>
+
+<footer>
+  <p>&copy; 2026 Noor Tones. All Rights Reserved.</p>
+</footer>
+
+<script>
+let allRingtones = [];
+
+fetch("ringtones.json")
+.then(res => res.json())
+.then(data => {
+  allRingtones = data;
+  displayTrending();
+  displayRingtones(allRingtones);
+});
+
+function displayRingtones(ringtones){
+  const container = document.getElementById("ringtone-list");
+  container.innerHTML = "";
+  ringtones.forEach(r=>{
+    const card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = `
+      <h3>${r.title}</h3>
+      <audio controls src="${r.file}"></audio>
+      <a href="${r.file}" download class="download-btn">Download</a>
+    `;
+    container.appendChild(card);
+  });
+}
+
+function displayTrending(){
+  const container = document.getElementById("trending-list");
+  container.innerHTML = "";
+  allRingtones.slice(0,5).forEach(r=>{
+    const card = document.createElement("div");
+    card.className = "card trending-card";
+    card.innerHTML = `
+      <h3>${r.title}</h3>
+      <audio controls src="${r.file}"></audio>
+      <a href="${r.file}" download class="download-btn">Download</a>
+    `;
+    container.appendChild(card);
+  });
+}
+
+document.getElementById("search-input").addEventListener("input", function(){
+  const query = this.value.toLowerCase();
+  const filtered = allRingtones.filter(r=>r.title.toLowerCase().includes(query));
+  displayRingtones(filtered);
+});
+</script>
+
+</body>
+</html>
