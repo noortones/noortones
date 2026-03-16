@@ -16,5 +16,41 @@
 "file":"tone.mp3",
 "duration":"15",
 "tags":["notification"]
+},
+{
+"title":"Love Ringtone",
+"file":"love.mp3",
+"duration":"25",
+"tags":["love","romantic"]
+},
+{
+"title":"Sad Tone",
+"file":"sad.mp3",
+"duration":"20",
+"tags":["sad"]
+},
+{
+"title":"Notification Tone",
+"file":"tone.mp3",
+"duration":"15",
+"tags":["notification"]
+},
+{
+"title":"Love Ringtone",
+"file":"love.mp3",
+"duration":"25",
+"tags":["love","romantic"]
+},
+{
+"title":"Sad Tone",
+"file":"sad.mp3",
+"duration":"20",
+"tags":["sad"]
+},
+{
+"title":"Notification Tone",
+"file":"tone.mp3",
+"duration":"15",
+"tags":["notification"]
 }
 ]
