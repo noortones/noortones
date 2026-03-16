@@ -3,5 +3,7 @@
   { "title": "Sad Ringtone", "file": "sad.mp3" },
   { "title": "Notification Tone", "file": "notification.mp3" },
   { "title": "Funny Tone", "file": "funny.mp3" },
-  { "title": "BGM Tone", "file": "bgm.mp3" }
+  { "title": "BGM Tone", "file": "bgm.mp3" },
+  { "title": "Alert Tone", "file": "alert.mp3" },
+  { "title": "Chime Tone", "file": "chime.mp3" }
 ]
