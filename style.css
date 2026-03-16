@@ -1,40 +1,95 @@
-/* CSS Variables for Dark/Light mode */
-:root {
-  --bg-color: #f0f2f5;
-  --text-color: #1f2937;
-  --card-bg: #fff;
-  --header-bg: linear-gradient(135deg, #1f2937, #374151);
-  --btn-bg: #2563eb;
-  --btn-hover: #1d4ed8;
-}
-
-body.dark-mode {
-  --bg-color: #111827;
-  --text-color: #f3f4f6;
-  --card-bg: #1f2937;
-  --header-bg: linear-gradient(135deg, #1f2937, #000);
-  --btn-bg: #3b82f6;
-  --btn-hover: #2563eb;
-}
-
+/* Body and fonts */
 body {
   font-family: Arial, sans-serif;
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  margin:0;
-  padding:0 15px;
+  background: #f0f2f5;  /* Light professional background */
+  margin: 0;
+  padding: 0 10px;
 }
 
 /* Header */
 header {
   text-align: center;
-  padding: 25px 0;
-  background: var(--header-bg);
-  color: var(--text-color);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  padding: 20px 0;
+  background: #1f2937;
+  color: #fff;
 }
-header h1 { margin:0; font-size:32px; }
-header p { margin:5px 0 0 0; font-size:16px; }
+header h1 { margin:0; font-size:28px; }
+header p { margin:5px 0 0 0; font-size:14px; color:#cbd5e1; }
+
+/* Search Bar */
+.search-container {
+  text-align: center;
+  margin: 15px 0;
+}
+#search-input {
+  width: 95%;
+  max-width: 400px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #2563eb;
+  font-size: 14px;
+}
+
+/* Section titles */
+h2 {
+  color:#1f2937;
+  margin:20px 0 10px 0;
+  border-left: 4px solid #2563eb; /* professional highlight */
+  padding-left:8px;
+}
+
+/* Cards container – grid for multiple cards per row */
+.card-container {
+  display: grid;
+  gap: 8px;
+  justify-content: center;
+}
+
+/* Responsive grid columns */
+@media (max-width: 480px) {
+  .card-container { grid-template-columns: repeat(3, 1fr); } /* mobile 3 cards */
+}
+@media (min-width: 481px) and (max-width: 768px) {
+  .card-container { grid-template-columns: repeat(4, 1fr); } /* tablet 4 cards */
+}
+@media (min-width: 769px) {
+  .card-container { grid-template-columns: repeat(6, 1fr); } /* desktop 6+ cards */
+}
+
+/* Cards */
+.card {
+  background-color: #f9fafb;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #2563eb;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Trending cards – thicker border */
+.trending-card {
+  border: 2px solid #2563eb;
+}
+
+/* Audio player styling */
+audio {
+  width: 100%;
+  margin: 6px 0;
+}
+
+/* Download button */
+.download-btn {
+  display:inline-block;
+  margin-top:5px;
+  padding:6px 12px;
+  background-color:#2563eb;
+  color:#fff;
+  text-decoration:none;
+  border-radius:5px;
+  font-weight:bold;
+  font-size:13px;
+}
+.download-btn:hover { background-color:#1d4ed8; }header p { margin:5px 0 0 0; font-size:16px; }
 .toggle-container { margin-top:10px; }
 
 /* Toggle button */
