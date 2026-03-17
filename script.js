@@ -1,15 +1,15 @@
-// ===== SAMPLE RINGTONES (10 example, extend to 100) =====
+// ===== SAMPLE RINGTONES (10 example, extend as needed) =====
 const ringtones = [
   {id:1,name:"Islamic Ringtone 1",file:"audio/1.mp3",duration:"00:15",tag:"Islamic"},
   {id:2,name:"Nasheed 1",file:"audio/2.mp3",duration:"00:20",tag:"Nasheed"},
   {id:3,name:"Naat 1",file:"audio/3.mp3",duration:"00:18",tag:"Naat"},
   {id:4,name:"iPhone 1",file:"audio/4.mp3",duration:"00:12",tag:"iPhone"},
-  {id:5,name:"Notification 1",file:"audio/5.mp3",duration:"00:14",tag:"Notification"},
-  {id:6,name:"Islamic Notification 1",file:"audio/6.mp3",duration:"00:13",tag:"Islamic Notification"},
-  {id:7,name:"Instagram Viral 1",file:"audio/7.mp3",duration:"00:16",tag:"Instagram Viral Ringtone"},
-  {id:8,name:"Best Ringtone 2026 1",file:"audio/8.mp3",duration:"00:20",tag:"Best Ringtone 2026"},
-  {id:9,name:"New Ringtone 2026 1",file:"audio/9.mp3",duration:"00:15",tag:"New Ringtone 2026"},
-  {id:10,name:"Islamic Ringtone 2",file:"audio/10.mp3",duration:"00:18",tag:"Islamic"},
+  {id:5,name:"Instagram Viral 1",file:"audio/5.mp3",duration:"00:16",tag:"Instagram Viral Ringtone"},
+  {id:6,name:"Best Ringtone 2026 1",file:"audio/6.mp3",duration:"00:20",tag:"Best Ringtone 2026"},
+  {id:7,name:"New Ringtone 2026 1",file:"audio/7.mp3",duration:"00:15",tag:"New Ringtone 2026"},
+  {id:8,name:"Islamic Ringtone 2",file:"audio/8.mp3",duration:"00:18",tag:"Islamic"},
+  {id:9,name:"Nasheed 2",file:"audio/9.mp3",duration:"00:22",tag:"Nasheed"},
+  {id:10,name:"Naat 2",file:"audio/10.mp3",duration:"00:14",tag:"Naat"}
 ];
 
 // ===== RENDER CARDS =====
@@ -29,8 +29,6 @@ function renderPageCards(containerId,count){
       <button class="download" onclick="downloadRingtone('${r.file}')">⬇ Download</button>
     `;
     container.appendChild(card);
-
-    // Ads after 4th card
     if((i+1)%4==0){
       const ad=document.createElement("div");
       ad.className="ad";
@@ -90,7 +88,6 @@ function filterTag(tag){
       <button class="download" onclick="downloadRingtone('${r.file}')">⬇ Download</button>
     `;
     container.appendChild(card);
-
     if((i+1)%4==0){
       const ad=document.createElement("div");
       ad.className="ad";
