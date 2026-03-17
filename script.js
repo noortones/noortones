@@ -7,9 +7,7 @@ const ringtones = [
   {id:5,name:"Instagram Viral 1",file:"audio/5.mp3",duration:"00:16",tag:"Instagram Viral Ringtone"},
   {id:6,name:"Best Ringtone 2026 1",file:"audio/6.mp3",duration:"00:20",tag:"Best Ringtone 2026"},
   {id:7,name:"New Ringtone 2026 1",file:"audio/7.mp3",duration:"00:15",tag:"New Ringtone 2026"},
-  {id:8,name:"Islamic Ringtone 2",file:"audio/8.mp3",duration:"00:18",tag:"Islamic"},
-  {id:9,name:"Nasheed 2",file:"audio/9.mp3",duration:"00:22",tag:"Nasheed"},
-  {id:10,name:"Naat 2",file:"audio/10.mp3",duration:"00:14",tag:"Naat"}
+  {id:8,name:"Islamic Ringtone 2",file:"audio/8.mp3",duration:"00:18",tag:"Islamic"}
 ];
 
 // ===== RENDER CARDS =====
@@ -25,16 +23,10 @@ function renderPageCards(containerId,count){
       <audio controls src="${r.file}"></audio>
       <div class="duration">${r.duration}</div>
       <button class="save" onclick="saveRingtone(${r.id})">💾 Save</button>
-      <button class="share" onclick="shareRingtone('${r.name}')">🔗 Share</button>
+      <button class="share" onclick="shareRingtone('${r.name}','${r.file}')">🔗 Share</button>
       <button class="download" onclick="downloadRingtone('${r.file}')">⬇ Download</button>
     `;
     container.appendChild(card);
-    if((i+1)%4==0){
-      const ad=document.createElement("div");
-      ad.className="ad";
-      ad.textContent="ADS_PLACE_CARD";
-      container.appendChild(ad);
-    }
   });
 }
 
@@ -50,7 +42,14 @@ function saveRingtone(id){
 }
 
 // ===== SHARE =====
-function shareRingtone(name){ prompt("Share URL:", window.location.href); }
+function shareRingtone(name,file){
+  const url=window.location.href;
+  if(navigator.share){
+    navigator.share({title:name,text:"Check this Ringtone",url:url});
+  } else {
+    prompt("Copy this URL to share:",url);
+  }
+}
 
 // ===== DOWNLOAD =====
 function downloadRingtone(file){
@@ -84,15 +83,9 @@ function filterTag(tag){
       <audio controls src="${r.file}"></audio>
       <div class="duration">${r.duration}</div>
       <button class="save" onclick="saveRingtone(${r.id})">💾 Save</button>
-      <button class="share" onclick="shareRingtone('${r.name}')">🔗 Share</button>
+      <button class="share" onclick="shareRingtone('${r.name}','${r.file}')">🔗 Share</button>
       <button class="download" onclick="downloadRingtone('${r.file}')">⬇ Download</button>
     `;
     container.appendChild(card);
-    if((i+1)%4==0){
-      const ad=document.createElement("div");
-      ad.className="ad";
-      ad.textContent="ADS_PLACE_CARD";
-      container.appendChild(ad);
-    }
   });
 }
