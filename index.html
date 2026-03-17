@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Noor Tones</title>
+<meta name="theme-color" content="#2563eb">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+<header class="header">
+  <div class="menu-btn" onclick="toggleMenu()">☰</div>
+  <h1 class="logo">Noor Tones</h1>
+  <div class="social">
+    <a href="https://instagram.com/yourprofile" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram" class="social-icon">
+    </a>
+    <a href="https://youtube.com/yourchannel" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube" class="social-icon">
+    </a>
+  </div>
+</header>
+
+<nav id="sideMenu" class="side-menu">
+  <a href="./index.html">Home</a>
+  <a href="./index.html#about">About</a>
+  <a href="./index.html#contact">Contact</a>
+</nav>
+
+<!-- ADS_PLACE_HEADER -->
+<div class="ad">ADS_PLACE_HEADER</div>
+
+<div class="categories">
+  <span onclick="filterCategory('all')">Trending</span>
+  <span onclick="filterCategory('notification')">Notification</span>
+  <span onclick="filterCategory('iphone')">iPhone Ringtones</span>
+  <span onclick="filterCategory('iphone-notification')">iPhone Notifications</span>
+</div>
+
+<div class="search-box">
+  <input id="search" placeholder="Search ringtones">
+</div>
+
+<section>
+  <h2>🔥 Trending Ringtones</h2>
+  <!-- ADS_PLACE_TRENDING -->
+  <div class="ad">ADS_PLACE_TRENDING</div>
+  <div id="trending" class="grid"></div>
+</section>
+
+<section>
+  <h2>🎵 All Ringtones</h2>
+  <!-- ADS_PLACE_ALL -->
+  <div class="ad">ADS_PLACE_ALL</div>
+  <div id="all" class="grid"></div>
+</section>
+
+<footer>
+  <!-- ADS_PLACE_FOOTER -->
+  <div class="ad">ADS_PLACE_FOOTER</div>
+  <p>© 2026 Noor Tones</p>
+</footer>
+
+<script src="./script.js"></script>
+<script>
+function toggleMenu() {
+  document.getElementById('sideMenu').classList.toggle('show');
+}
+</script>
+</body>
+</html>
