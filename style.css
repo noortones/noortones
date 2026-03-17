@@ -1,0 +1,48 @@
+/* Base */
+body{font-family:Arial,sans-serif;margin:0;background:#f3f4f6;overflow-x:hidden;}
+h1,h2,h3,h4{margin:0;padding:0;}
+a{text-decoration:none;}
+
+/* Header */
+.header{display:flex;justify-content:space-between;align-items:center;padding:12px 20px;background:#2563eb;color:white;position:fixed;width:100%;top:0;z-index:1000;box-shadow:0 2px 6px rgba(0,0,0,0.2);}
+.menu-btn{font-size:30px;cursor:pointer;}
+.logo{font-family:'Poppins', sans-serif;font-size:26px;font-weight:700;}
+.social{display:flex;gap:12px;}
+.social-icon{width:28px;height:28px;}
+
+/* Side Menu */
+.side-menu{position:fixed;top:0;left:-260px;width:260px;height:100%;background:#1e40af;padding-top:60px;display:flex;flex-direction:column;gap:20px;transition:0.3s;z-index:999;}
+.side-menu a{color:white;font-size:18px;padding:8px 20px;}
+.side-menu.show{left:0;}
+
+/* Categories */
+.categories{display:flex;gap:10px;padding:12px;justify-content:center;flex-wrap:wrap;margin-top:70px;}
+.categories span{cursor:pointer;padding:6px 12px;background:#2563eb;color:white;border-radius:8px;transition:0.3s;}
+.categories span:hover{background:#1d4db1;}
+
+/* Search */
+.search-box{padding:10px;text-align:center;}
+#search{padding:10px;width:90%;max-width:400px;border:2px solid #2563eb;border-radius:8px;font-size:16px;}
+
+/* Grid & Cards */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px;padding:12px;margin-top:10px;}
+.card{background:white;border:2px solid #ddd;border-radius:12px;padding:10px;transition:0.3s;overflow:hidden;}
+.card:hover{transform:translateY(-6px);box-shadow:0 6px 12px rgba(0,0,0,0.15);border-color:#2563eb;}
+.card audio{width:100%;margin-top:6px;}
+button.download{padding:6px 12px;margin-top:8px;background:#2563eb;color:white;border:none;border-radius:6px;cursor:pointer;width:100%;}
+button.download:hover{background:#1d4db1;}
+
+/* Ad */
+.ad{text-align:center;margin:15px;}
+
+/* Footer */
+footer{padding:12px;text-align:center;background:#2563eb;color:white;margin-top:20px;}
+
+/* Responsive Mobile */
+@media(max-width:480px){
+  .grid{grid-template-columns:repeat(auto-fill,minmax(120px,1fr));}
+  .logo{font-size:22px;}
+  .menu-btn{font-size:28px;}
+  .categories span{padding:5px 10px;font-size:14px;}
+  #search{font-size:14px;}
+}
