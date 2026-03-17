@@ -1,24 +1,25 @@
-const grid = document.getElementById('grid-container');
-const overlay = document.getElementById('overlay');
+const grid = document.getElementById("grid-container");
+const overlay = document.getElementById("overlay");
+const searchInput = document.getElementById("searchInput");
 
 let ringtones = [];
 
-// TEST DATA
+// TEST AUDIO (WORKING)
 for(let i=1;i<=12;i++){
   ringtones.push({
-    name:`Ringtone ${i}`,
-    file:`https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3`
+    name: "Ringtone " + i,
+    file: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
   });
 }
 
 // RENDER
-function renderCards(items){
-  grid.innerHTML = '';
+function renderCards(list){
+  grid.innerHTML = "";
 
-  items.forEach((r,i)=>{
+  list.forEach((r,i)=>{
 
-    let card = document.createElement('div');
-    card.className='card';
+    let card = document.createElement("div");
+    card.className = "card";
 
     card.innerHTML = `
       <div>${r.name}</div>
@@ -31,11 +32,11 @@ function renderCards(items){
 
     grid.appendChild(card);
 
-    // 🔥 ADS FIX (working)
+    // ADS AFTER EVERY 4
     if((i+1)%4===0){
-      let ad = document.createElement('div');
-      ad.className='ad';
-      ad.innerText='ADS HERE';
+      let ad = document.createElement("div");
+      ad.className = "ad";
+      ad.innerText = "ADS HERE";
       grid.appendChild(ad);
     }
 
@@ -44,8 +45,8 @@ function renderCards(items){
 
 // MENU FIX
 function toggleMenu(){
-  document.getElementById('side-menu').classList.toggle('show');
-  overlay.classList.toggle('show');
+  document.getElementById("side-menu").classList.toggle("show");
+  overlay.classList.toggle("show");
 }
 
 // DOWNLOAD
@@ -56,7 +57,10 @@ function download(file){
 // SHARE
 function share(){
   if(navigator.share){
-    navigator.share({title:"Noor Tones",url:window.location.href});
+    navigator.share({
+      title:"Noor Tones",
+      url:window.location.href
+    });
   }else{
     alert("Share not supported");
   }
@@ -66,6 +70,13 @@ function share(){
 function like(name){
   alert(name + " saved");
 }
+
+// SEARCH
+searchInput.addEventListener("input", e=>{
+  let q = e.target.value.toLowerCase();
+  let filtered = ringtones.filter(r=>r.name.toLowerCase().includes(q));
+  renderCards(filtered);
+});
 
 // LOAD
 renderCards(ringtones);
