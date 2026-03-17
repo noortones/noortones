@@ -62,16 +62,17 @@ body {
   padding:10px;
 }
 
-/* CARD */
 .card {
   background:#fff;
-  border:1px solid #D4AF37;
+  border:2px solid #D4AF37; /* 🔥 thoda strong */
   border-radius:12px;
   padding:10px;
+  transition:0.3s;
 }
+
 .card:hover {
-  transform:translateY(-4px);
-  box-shadow:0 4px 10px rgba(0,0,0,0.2);
+  transform:translateY(-5px);
+  box-shadow:0 6px 14px rgba(0,0,0,0.25);
 }
 
 /* BUTTON */
