@@ -1,4 +1,4 @@
-// ===== SAMPLE RINGTONES (10 example, extend as needed) =====
+// ===== SAMPLE RINGTONES (10 example) =====
 const ringtones = [
   {id:1,name:"Islamic Ringtone 1",file:"audio/1.mp3",duration:"00:15",tag:"Islamic"},
   {id:2,name:"Nasheed 1",file:"audio/2.mp3",duration:"00:20",tag:"Nasheed"},
