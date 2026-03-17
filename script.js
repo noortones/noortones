@@ -1,4 +1,4 @@
-// ===== SAMPLE RINGTONES (100 entries) =====
+// ===== SAMPLE RINGTONES (100 ENTRIES) =====
 const ringtones = [
   {id:1,name:"Trending Ringtone 1",file:"audio/trending1.mp3",duration:"00:15",tag:"Trending"},
   {id:2,name:"Trending Ringtone 2",file:"audio/trending2.mp3",duration:"00:20",tag:"Trending"},
@@ -95,4 +95,4 @@ function filterTag(tag){
       container.appendChild(ad);
     }
   });
-}
+  }
