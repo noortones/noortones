@@ -1,0 +1,39 @@
+/* ===== General ===== */
+body { font-family: 'Poppins', sans-serif; margin:0; padding:0; background:#F8F9FA; }
+.header { display:flex; justify-content:space-between; align-items:center; padding:10px 20px; background:#006400; color:#fff; position:sticky; top:0; z-index:1000; }
+.logo-text { font-size:20px; font-weight:bold; color:#D4AF37; }
+.menu-btn { font-size:24px; cursor:pointer; }
+.social img { width:28px; margin-left:10px; border-radius:50%; }
+
+/* ===== Side Menu ===== */
+.side-menu { position:fixed; left:-250px; top:0; width:250px; height:100%; background:#112E11; color:#fff; padding-top:60px; transition:0.3s; z-index:1001; }
+.side-menu.show { left:0; }
+.side-menu a { display:block; color:#fff; padding:10px 20px; text-decoration:none; }
+.side-menu a:hover { background:#228B22; }
+
+/* ===== Ads ===== */
+.ad { background:#e2e8f0; text-align:center; padding:10px; margin:10px 0; font-weight:bold; color:#333; border-radius:8px; }
+
+/* ===== Categories / Tags ===== */
+.categories { display:flex; justify-content:center; flex-wrap:wrap; gap:10px; margin:10px 0; }
+.categories span { background:#006400; color:#fff; padding:5px 12px; border-radius:20px; cursor:pointer; transition:0.3s; }
+.categories span:hover { background:#228B22; }
+
+/* ===== Search ===== */
+.search-box { display:flex; justify-content:center; margin:10px 0; position:relative; }
+.search-box input { width:75%; padding:8px 30px 8px 10px; border-radius:20px; border:1px solid #D4AF37; }
+.search-box .search-icon { position:absolute; right:15%; top:50%; transform:translateY(-50%); font-size:16px; }
+
+/* ===== Grid Cards ===== */
+.grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(200px,1fr)); gap:15px; padding:10px; max-width:1200px; margin:0 auto; }
+.card { background:#fff; border:1px solid #D4AF37; border-radius:12px; padding:10px; transition:0.3s; position:relative; }
+.card:hover { transform:translateY(-5px); box-shadow:0 4px 12px rgba(0,0,0,0.15); }
+.card audio { width:100%; margin-top:5px; }
+.card .duration { font-size:12px; color:#555; margin-top:5px; }
+.card button { margin:5px 2px; padding:5px 10px; border:none; border-radius:6px; cursor:pointer; }
+.card button.download { background:#006400; color:#fff; }
+.card button.like { background:#10B981; color:#fff; }
+.card button.share { background:#D4AF37; color:#fff; }
+
+/* ===== Footer ===== */
+footer { text-align:center; padding:15px 0; background:#006400; color:#fff; margin-top:20px; }
