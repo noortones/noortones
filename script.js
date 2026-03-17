@@ -1,15 +1,17 @@
 const grid = document.getElementById('grid-container');
-const searchInput = document.getElementById('searchInput');
+const overlay = document.getElementById('overlay');
 
 let ringtones = [];
 
-for(let i=1;i<=20;i++){
+// TEST DATA
+for(let i=1;i<=12;i++){
   ringtones.push({
     name:`Ringtone ${i}`,
-    file:`./audio/${i}.mp3`
+    file:`https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3`
   });
 }
 
+// RENDER
 function renderCards(items){
   grid.innerHTML = '';
 
@@ -29,56 +31,40 @@ function renderCards(items){
 
     grid.appendChild(card);
 
-    // ADS after every 4 cards
+    // 🔥 ADS FIX (working)
     if((i+1)%4===0){
       let ad = document.createElement('div');
       ad.className='ad';
-      ad.innerText='ADS_PLACE_MIDDLE';
+      ad.innerText='ADS HERE';
       grid.appendChild(ad);
     }
 
   });
 }
 
+// MENU FIX
+function toggleMenu(){
+  document.getElementById('side-menu').classList.toggle('show');
+  overlay.classList.toggle('show');
+}
+
 // DOWNLOAD
 function download(file){
-  let a=document.createElement('a');
-  a.href=file;
-  a.download='';
-  a.click();
+  window.open(file);
 }
 
 // SHARE
 function share(){
   if(navigator.share){
-    navigator.share({
-      title:"Noor Tones",
-      url:window.location.href
-    });
+    navigator.share({title:"Noor Tones",url:window.location.href});
   }else{
-    prompt("Copy:",window.location.href);
+    alert("Share not supported");
   }
 }
 
 // LIKE
 function like(name){
-  let data=JSON.parse(localStorage.getItem('liked'))||[];
-  if(!data.includes(name)){
-    data.push(name);
-    localStorage.setItem('liked',JSON.stringify(data));
-    alert("Saved!");
-  }
-}
-
-// SEARCH
-searchInput.addEventListener('input',e=>{
-  let q=e.target.value.toLowerCase();
-  renderCards(ringtones.filter(r=>r.name.toLowerCase().includes(q)));
-});
-
-// MENU
-function toggleMenu(){
-  document.getElementById('side-menu').classList.toggle('show');
+  alert(name + " saved");
 }
 
 // LOAD
