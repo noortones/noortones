@@ -2,95 +2,64 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Noor Tones</title>
-<meta name="theme-color" content="#2563eb">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Noor Tones | Trending Ringtones</title>
 <link rel="stylesheet" href="style.css">
+<meta name="theme-color" content="#006400">
 </head>
 <body>
 
-<!-- ===== Header ===== -->
 <header class="header">
-  <!-- Left: Hamburger menu -->
   <div class="menu-btn" onclick="toggleMenu()">☰</div>
-
-  <!-- Center: Logo -->
-  <div class="logo-img"><img src="images/logo.png" alt="Noor Tones Logo"></div>
-
-  <!-- Right: Social Icons -->
+  <div class="site-name">Noor Tones</div>
   <div class="social">
-    <a href="https://instagram.com/yourprofile" target="_blank">
-      <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram">
-    </a>
-    <a href="https://youtube.com/yourchannel" target="_blank">
-      <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube">
-    </a>
+    <a href="#"><img src="images/instagram.png" alt="Instagram"></a>
+    <a href="#"><img src="images/youtube.png" alt="YouTube"></a>
   </div>
 </header>
 
-<!-- ===== Side Menu ===== -->
 <nav id="sideMenu" class="side-menu">
   <a href="index.html">Home</a>
-  <a href="liked.html">Liked</a>
+  <a href="liked.html">Saved</a>
   <a href="about.html">About</a>
   <a href="contact.html">Contact</a>
 </nav>
 
-<!-- ===== Header Ad Placeholder ===== -->
 <div class="ad">ADS_PLACE_HEADER</div>
-<!-- Guide: Replace "ADS_PLACE_HEADER" with your header ad code -->
 
-<!-- ===== Top 5 Tags ===== -->
+<!-- Top 4 tags -->
 <div class="categories top-tags">
-  <span onclick="location.href='trending.html'">Trending Ringtone</span>
-  <span onclick="location.href='notification.html'">Notification</span>
-  <span onclick="location.href='iphone-ringtone.html'">iPhone Ringtone</span>
-  <span onclick="location.href='iphone-notification.html'">iPhone Notification</span>
-  <span onclick="location.href='islamic.html'">Islamic Ringtone</span>
+  <span onclick="filterTag('Islamic')">Islamic</span>
+  <span onclick="filterTag('Nasheed')">Nasheed</span>
+  <span onclick="filterTag('Naat')">Naat</span>
+  <span onclick="filterTag('iPhone')">iPhone</span>
 </div>
 
-<!-- ===== Search Bar ===== -->
+<!-- Search Box -->
 <div class="search-box">
-  <input id="search" placeholder="Search ringtones">
-  <span class="search-icon">🔍</span>
+  <input type="text" id="search" placeholder="Search 🔍">
 </div>
 
-<!-- ===== Trending Section ===== -->
-<section>
-  <h2>🔥 Trending Ringtones</h2>
-  <div class="grid" id="trending"></div>
-  <!-- Cards will be rendered by JS -->
-</section>
+<!-- Cards Grid -->
+<div class="grid" id="grid-container"></div>
 
-<!-- ===== Bottom 5 Tags ===== -->
+<!-- Bottom 3 tags -->
 <div class="categories bottom-tags">
-  <span onclick="location.href='islamic-notification.html'">Islamic Notification</span>
-  <span onclick="location.href='nasheed.html'">Nasheed Ringtone</span>
-  <span onclick="location.href='instagram.html'">Instagram Trending</span>
-  <span onclick="location.href='classic.html'">Classic Ringtone</span>
-  <span onclick="location.href='other.html'">Other Ringtones</span>
+  <span onclick="filterTag('Instagram Viral Ringtone')">Instagram Viral</span>
+  <span onclick="filterTag('Best Ringtone 2026')">Best 2026</span>
+  <span onclick="filterTag('New Ringtone 2026')">New 2026</span>
 </div>
 
-<!-- ===== Footer Ad Placeholder ===== -->
 <div class="ad">ADS_PLACE_FOOTER</div>
-<!-- Guide: Replace "ADS_PLACE_FOOTER" with your footer ad code -->
 
-<!-- ===== Footer ===== -->
 <footer>
   <p>© 2026 Noor Tones</p>
 </footer>
 
-<!-- ===== JS ===== -->
 <script src="script.js"></script>
 <script>
-function toggleMenu(){
-  document.getElementById('sideMenu').classList.toggle('show');
-}
-
-// Render home page 8 cards
-renderPageCards("trending", 8);
+toggleMenu = () => document.getElementById('sideMenu').classList.toggle('show');
+renderPageCards("grid-container", 8);
 </script>
-
 </body>
 </html>
