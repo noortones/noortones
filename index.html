@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Noor Tones | Trending Ringtones</title>
+<link rel="stylesheet" href="style.css">
+<meta name="theme-color" content="#2563EB">
+</head>
+<body>
+
+<header class="header">
+  <div class="menu-btn" onclick="toggleMenu()">☰</div>
+  <div class="logo-text">Noor Tones</div>
+  <div class="social">
+    <a href="https://instagram.com/yourprofile" target="_blank"><img src="images/instagram.png" alt="Instagram"></a>
+    <a href="https://youtube.com/yourchannel" target="_blank"><img src="images/youtube.png" alt="YouTube"></a>
+  </div>
+</header>
+
+<nav id="sideMenu" class="side-menu">
+  <a href="index.html">Home</a>
+  <a href="liked.html">Saved</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+<div class="ad">ADS_PLACE_HEADER</div>
+
+<!-- Top 4 tags -->
+<div class="top-tags">
+  <span onclick="filterTag('Islamic')">Islamic</span>
+  <span onclick="filterTag('Nasheed')">Nasheed</span>
+  <span onclick="filterTag('Naat')">Naat</span>
+  <span onclick="filterTag('iPhone')">iPhone</span>
+</div>
+
+<!-- Search Bar -->
+<div class="search-box">
+  <input type="text" id="search" placeholder="Search 🔍">
+</div>
+
+<!-- Cards Grid -->
+<div class="grid" id="grid-container"></div>
+
+<!-- Bottom 4 tags -->
+<div class="bottom-tags">
+  <span onclick="filterTag('Notification')">Notification</span>
+  <span onclick="filterTag('Islamic Notification')">Islamic Notification</span>
+  <span onclick="filterTag('Instagram Viral Ringtone')">Instagram Viral</span>
+  <span onclick="filterTag('Best Ringtone 2026')">Best Ringtone 2026</span>
+</div>
+
+<div class="ad">ADS_PLACE_FOOTER</div>
+
+<footer>
+  <p>© 2026 Noor Tones</p>
+</footer>
+
+<script src="script.js"></script>
+<script>
+toggleMenu = () => document.getElementById('sideMenu').classList.toggle('show');
+renderPageCards("grid-container", 8);
+</script>
+</body>
+</html>
