@@ -4,22 +4,23 @@ body {
   background:#F8F9FA;
 }
 
-/* HEADER */
+/* HEADER FIX */
 .header {
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:10px;
+  padding:15px 20px; /* 🔥 bigger */
   background:#006400;
   color:#fff;
 }
 
 .logo-text {
-  color:#D4AF37;
+  font-size:20px; /* 🔥 bigger */
   font-weight:bold;
+  color:#D4AF37;
 }
 
-/* SIDE MENU */
+/* MENU */
 .side-menu {
   position:fixed;
   top:0;
@@ -28,35 +29,17 @@ body {
   height:100%;
   background:#0b3d0b;
   transition:0.3s;
-  z-index:2000;
 }
+.side-menu.show { left:0; }
 
-.side-menu.show {
-  left:0;
-}
-
-.side-menu a {
-  display:block;
-  padding:12px;
-  color:#fff;
-  text-decoration:none;
-}
-
-/* OVERLAY */
 .overlay {
   position:fixed;
-  top:0;
-  left:0;
   width:100%;
   height:100%;
   background:rgba(0,0,0,0.5);
   display:none;
-  z-index:1500;
 }
-
-.overlay.show {
-  display:block;
-}
+.overlay.show { display:block; }
 
 /* SEARCH */
 .search-box {
@@ -64,7 +47,6 @@ body {
   justify-content:center;
   margin:10px;
 }
-
 .search-box input {
   width:80%;
   padding:10px;
@@ -87,21 +69,18 @@ body {
   border-radius:12px;
   padding:10px;
 }
-
 .card:hover {
   transform:translateY(-4px);
   box-shadow:0 4px 10px rgba(0,0,0,0.2);
 }
 
-/* BUTTONS */
+/* BUTTON */
 button {
   margin:5px 3px;
   padding:6px 10px;
   border:none;
   border-radius:6px;
-  cursor:pointer;
 }
-
 .download { background:#006400; color:#fff; }
 .share { background:#D4AF37; color:#fff; }
 .like { background:#10B981; color:#fff; }
@@ -113,7 +92,6 @@ button {
   text-align:center;
   padding:12px;
   margin:10px;
-  border-radius:10px;
 }
 
 /* FOOTER */
