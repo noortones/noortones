@@ -65,7 +65,7 @@ function downloadRingtone(file){
 // ===== SEARCH =====
 document.getElementById("search")?.addEventListener("input",(e)=>{
   const val=e.target.value.toLowerCase();
-  document.querySelectorAll(".card").forEach(c=>{
+  document.querySelectorAll(".grid .card").forEach(c=>{
     c.style.display=c.querySelector("h3").textContent.toLowerCase().includes(val)?"block":"none";
   });
 });
