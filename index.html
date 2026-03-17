@@ -1,66 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Noor Tones</title>
-
-<link rel="stylesheet" href="./style.css">
-</head>
-
 <body>
 
-<!-- HEADER -->
 <header class="header">
-  <div class="menu-btn" onclick="toggleMenu()">☰</div>
+  <div onclick="toggleMenu()">☰</div>
   <div class="logo-text">Noor Tones</div>
-  <div class="social">
-    <img src="./images/instagram.png">
-    <img src="./images/youtube.png">
-  </div>
 </header>
 
-<!-- SIDE MENU -->
 <div class="side-menu" id="side-menu">
   <a href="#">Home</a>
   <a href="#">Saved</a>
   <a href="#">About</a>
-  <a href="#">Contact</a>
 </div>
-  
-<!-- TOP AD -->
+
+<!-- NEW -->
+<div class="overlay" id="overlay"></div>
+
 <div class="ad">ADS_PLACE_HEADER</div>
 
-<!-- TAGS -->
-<div class="categories">
-  <span data-tag="Islamic">Islamic</span>
-  <span data-tag="Nasheed">Nasheed</span>
-  <span data-tag="Naat">Naat</span>
-  <span data-tag="iPhone">iPhone</span>
-</div>
-
-<div class="categories">
-  <span data-tag="Notification">Notification</span>
-  <span data-tag="IslamicNotification">Islamic Notification</span>
-  <span data-tag="InstagramViral">Instagram Viral</span>
-</div>
-
-<!-- SEARCH -->
 <div class="search-box">
-  <input type="text" id="searchInput" placeholder="Search ringtone...">
-  <span class="search-icon">🔍</span>
+  <input id="searchInput" placeholder="Search ringtone...">
 </div>
 
-<!-- CARDS -->
 <div class="grid" id="grid-container"></div>
 
-<!-- FOOTER AD -->
 <div class="ad">ADS_PLACE_FOOTER</div>
 
-<footer>
-  © 2026 Noor Tones
-</footer>
+<footer>© 2026 Noor Tones</footer>
 
 <script src="./script.js"></script>
 </body>
-</html>
