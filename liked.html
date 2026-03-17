@@ -3,8 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Liked Ringtones | Noor Tones</title>
+<title>Noor Tones | Liked Ringtones</title>
 <link rel="stylesheet" href="style.css">
+<meta name="theme-color" content="#2563eb">
 </head>
 <body>
 
@@ -12,8 +13,8 @@
   <div class="menu-btn" onclick="toggleMenu()">☰</div>
   <div class="logo-img"><img src="images/logo.png" alt="Noor Tones Logo"></div>
   <div class="social">
-    <a href="https://instagram.com/yourprofile" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/174/174855.png"></a>
-    <a href="https://youtube.com/yourchannel" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png"></a>
+    <a href="https://instagram.com/yourprofile" target="_blank"><img src="images/instagram.png"></a>
+    <a href="https://youtube.com/yourchannel" target="_blank"><img src="images/youtube.png"></a>
   </div>
 </header>
 
@@ -26,7 +27,7 @@
 
 <div class="ad">ADS_PLACE_HEADER</div>
 
-<h2>💖 Liked Ringtones</h2>
+<h2 style="text-align:center; margin-top:10px;">Your Liked Ringtones</h2>
 <div class="grid" id="liked-grid"></div>
 
 <div class="ad">ADS_PLACE_FOOTER</div>
@@ -36,11 +37,34 @@
 
 <script src="script.js"></script>
 <script>
-function toggleMenu(){ document.getElementById('sideMenu').classList.toggle('show'); }
+toggleMenu = () => document.getElementById('sideMenu').classList.toggle('show');
 
-// Render liked cards from localStorage
-renderLikedCards("liked-grid");
+function renderLiked(){
+  const container=document.getElementById("liked-grid");
+  let liked=JSON.parse(localStorage.getItem("likedRingtones")||"[]");
+  container.innerHTML="";
+  liked.forEach((r,i)=>{
+    const card=document.createElement("div");
+    card.className="card";
+    card.innerHTML=`
+      <h3>${i+1}. ${r.name}</h3>
+      <audio controls src="${r.file}"></audio>
+      <div class="duration">${r.duration}</div>
+      <button class="share" onclick="shareRingtone('${r.name}')">🔗 Share</button>
+      <button class="download" onclick="downloadRingtone('${r.file}')">⬇ Download</button>
+    `;
+    container.appendChild(card);
+
+    if((i+1)%4==0){
+      const ad=document.createElement("div");
+      ad.className="ad";
+      ad.textContent="ADS_PLACE_CARD";
+      container.appendChild(ad);
+    }
+  });
+}
+
+renderLiked();
 </script>
-
 </body>
 </html>
