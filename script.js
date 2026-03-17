@@ -8,7 +8,7 @@ let ringtones = [];
 for(let i=1;i<=12;i++){
   ringtones.push({
     name: "Ringtone " + i,
-    file: "new ringtone 2026.mp3"
+    file: "newringtone2026.mp3"
   });
 }
 
