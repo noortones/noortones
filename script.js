@@ -1,16 +1,17 @@
 const grid = document.getElementById("grid-container");
-const overlay = document.getElementById("overlay");
 const searchInput = document.getElementById("searchInput");
 
-let ringtones = [];
-
-// TEST AUDIO (WORKING)
-for(let i=1;i<=12;i++){
-  ringtones.push({
-    name: "Ringtone " + i,
-    file: "newringtone2026.mp3"
-  });
-}
+// 🔥 REAL AUDIO LIST
+let ringtones = [
+  { name: "Azan", file: "./audio/1.mp3" },
+  { name: "Naat", file: "./audio/2.mp3" },
+  { name: "Nasheed", file: "./audio/3.mp3" },
+  { name: "Takbeer", file: "./audio/4.mp3" },
+  { name: "Allah Hu", file: "./audio/5.mp3" },
+  { name: "SubhanAllah", file: "./audio/6.mp3" },
+  { name: "Ya Nabi", file: "./audio/7.mp3" },
+  { name: "Allahu Akbar", file: "./audio/8.mp3" }
+];
 
 // RENDER
 function renderCards(list){
@@ -32,22 +33,23 @@ function renderCards(list){
 
     grid.appendChild(card);
 
-    // ADS AFTER EVERY 4
+    // ADS after 4 cards
     if((i+1)%4===0){
       let ad = document.createElement("div");
-      ad.className = "ad";
-      ad.innerText = "ADS HERE";
+      ad.className="ad";
+      ad.innerText="ADS HERE";
       grid.appendChild(ad);
     }
 
   });
 }
 
-// MENU FIX
-function toggleMenu(){
-  document.getElementById("side-menu").classList.toggle("show");
-  overlay.classList.toggle("show");
-}
+// SEARCH
+searchInput.addEventListener("input", e=>{
+  let q = e.target.value.toLowerCase();
+  let filtered = ringtones.filter(r=>r.name.toLowerCase().includes(q));
+  renderCards(filtered);
+});
 
 // DOWNLOAD
 function download(file){
@@ -61,8 +63,8 @@ function share(){
       title:"Noor Tones",
       url:window.location.href
     });
-  }else{
-    alert("Share not supported");
+  } else {
+    alert("Copy link to share");
   }
 }
 
@@ -70,13 +72,6 @@ function share(){
 function like(name){
   alert(name + " saved");
 }
-
-// SEARCH
-searchInput.addEventListener("input", e=>{
-  let q = e.target.value.toLowerCase();
-  let filtered = ringtones.filter(r=>r.name.toLowerCase().includes(q));
-  renderCards(filtered);
-});
 
 // LOAD
 renderCards(ringtones);
