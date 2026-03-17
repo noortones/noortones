@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Noor Tones | Trending Ringtones</title>
 <link rel="stylesheet" href="style.css">
+<meta name="theme-color" content="#2563eb">
 </head>
 <body>
 
@@ -13,8 +14,8 @@
   <div class="menu-btn" onclick="toggleMenu()">☰</div>
   <div class="logo-img"><img src="images/logo.png" alt="Noor Tones Logo"></div>
   <div class="social">
-    <a href="https://instagram.com/yourprofile" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram"></a>
-    <a href="https://youtube.com/yourchannel" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube"></a>
+    <a href="https://instagram.com/yourprofile" target="_blank"><img src="images/instagram.png" alt="Instagram"></a>
+    <a href="https://youtube.com/yourchannel" target="_blank"><img src="images/youtube.png" alt="YouTube"></a>
   </div>
 </header>
 
@@ -26,21 +27,16 @@
   <a href="contact.html">Contact</a>
 </nav>
 
-<!-- ADS HEADER -->
+<!-- HEADER ADS -->
 <div class="ad">ADS_PLACE_HEADER</div>
 
-<!-- TAGS / CATEGORIES -->
-<div class="categories">
+<!-- TOP TAGS -->
+<div class="top-tags">
   <span onclick="filterTag('Trending')">Trending</span>
   <span onclick="filterTag('Notification')">Notification</span>
   <span onclick="filterTag('iPhone Ringtone')">iPhone Ringtone</span>
   <span onclick="filterTag('iPhone Notification')">iPhone Notification</span>
   <span onclick="filterTag('Islamic Ringtone')">Islamic Ringtone</span>
-  <span onclick="filterTag('Islamic Notification')">Islamic Notification</span>
-  <span onclick="filterTag('Nasheed Ringtone')">Nasheed Ringtone</span>
-  <span onclick="filterTag('Instagram Trending')">Instagram Trending</span>
-  <span onclick="filterTag('Classic')">Classic</span>
-  <span onclick="filterTag('Other')">Other</span>
 </div>
 
 <!-- SEARCH BAR -->
@@ -48,10 +44,19 @@
   <input type="text" id="search" placeholder="Search 🔍">
 </div>
 
-<!-- GRID FOR CARDS -->
+<!-- GRID CONTAINER -->
 <div class="grid" id="grid-container"></div>
 
-<!-- ADS FOOTER -->
+<!-- BOTTOM TAGS -->
+<div class="bottom-tags">
+  <span onclick="filterTag('Islamic Notification')">Islamic Notification</span>
+  <span onclick="filterTag('Nasheed Ringtone')">Nasheed Ringtone</span>
+  <span onclick="filterTag('Instagram Trending')">Instagram Trending</span>
+  <span onclick="filterTag('Classic')">Classic</span>
+  <span onclick="filterTag('Other')">Other</span>
+</div>
+
+<!-- FOOTER ADS -->
 <div class="ad">ADS_PLACE_FOOTER</div>
 
 <footer>
@@ -61,8 +66,8 @@
 <script src="script.js"></script>
 <script>
 toggleMenu = () => document.getElementById('sideMenu').classList.toggle('show');
-renderPageCards("grid-container", ringtones.length); // Render all ringtones initially
+// Initial render: show first 8 cards (home page)
+renderPageCards("grid-container", 8);
 </script>
-
 </body>
 </html>
