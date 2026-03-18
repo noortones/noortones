@@ -6,7 +6,7 @@ const songs = [
   {name:"YA ALI Ringtone Download | Best Mobile Ringtone ",file:"Ali_Ali_Mobile_Ringtone_By_NOOR_TONES.mp3",category:"Islamic"},
   {name:"Eta Kulli DA Ringtone Download",file:"Eta_Kulli_Da_Ringtone_By_NOOR_TONES.mp3",category:"Instagram"},
   {name:"The Sins Nasheed | Nasheed Ringtone",file:"The_Sins_Nasheed_Ringtone_By_NOOR_TONES.mp3",category:"Nasheed"},
-  {name:"Ringtone 5",file:"tone5.mp3",category:"Notification"},
+  {name:"Azan Ringtnoe | Best Mobile Ringtone",file:"Azan_Fajar_Alaram&Ringtone_By_NOOR_TONES.mp3",category:"Notification"},
   {name:"Ringtone 6",file:"tone6.mp3",category:"Instagram"},
   {name:"Ringtone 7",file:"tone7.mp3",category:"Best"},
   {name:"Ringtone 8",file:"tone8.mp3",category:"Islamic"},
