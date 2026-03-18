@@ -31,8 +31,8 @@ function loadSongs(list){
       ad.innerText = "Ads Here";
       grid.appendChild(ad); 
     
-      // AD AFTER 4 CARDS
-    if(i === 4){
+      // AD AFTER 8 CARDS
+    if(i === 8){
       const ad = document.createElement("div");
       ad.className = "ad";
       ad.innerText = "Ads Here";
