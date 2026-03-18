@@ -2,12 +2,12 @@
 document.addEventListener("DOMContentLoaded", () => {
 
 const songs = [
-  {name:"La Tahzanu Ala Ringtone Download | BEst  Ringtone 2026",file:"La_Tahzanu_Ala_naat_Ringtone_By_NOOR_TONES.mp3",category:"Islamic" },
-  {name:"YA ALI Ringtone Download | Best Mobile Ringtone ",file:"Ali_Ali_Mobile_Ringtone_By_NOOR_TONES.mp3",category:"Islamic"},
+  {name:"La Tahzanu Ala Ringtone Download | Best  Ringtone 2026 Dawnload",file:"La_Tahzanu_Ala_naat_Ringtone_By_NOOR_TONES.mp3",category:"Islamic" },
+  {name:"YA ALI Ringtone Download | Best Mobile Ringtone Dawnload ",file:"Ali_Ali_Mobile_Ringtone_By_NOOR_TONES.mp3",category:"Islamic"},
   {name:"Eta Kulli DA Ringtone Download",file:"Eta_Kulli_Da_Ringtone_By_NOOR_TONES.mp3",category:"Instagram"},
-  {name:"The Sins Nasheed | Nasheed Ringtone",file:"The_Sins_Nasheed_Ringtone_By_NOOR_TONES.mp3",category:"Nasheed"},
+  {name:"The Sins Nasheed | Nasheed Ringtone Dawnload",file:"The_Sins_Nasheed_Ringtone_By_NOOR_TONES.mp3",category:"Nasheed"},
   {name:"Azan Ringtnoe | Best Mobile Ringtone",file:"Azan_Fajar_Alaram&Ringtone_By_NOOR_TONES.mp3",category:"Islamic"},
-  {name:"Ringtone 6",file:"tone6.mp3",category:"Instagram"},
+  {name:"Liyakun Liyakun Ringtone Dawnload | Best MObile Ringtone Dawnload",file:"Liyakun_Liyakun_Arabic_Best_Ringtone_By_NOOR_TONES.mp3",category:"Islamic"},
   {name:"Ringtone 7",file:"tone7.mp3",category:"Best"},
   {name:"Ringtone 8",file:"tone8.mp3",category:"Islamic"},
   {name:"Ringtone 9",file:"tone8.mp3",category:"Islamic"},
