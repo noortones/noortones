@@ -2,7 +2,7 @@
 document.addEventListener("DOMContentLoaded", () => {
 
 const songs = [
-  {name:"La Tahzanu Ala | Naat Ringtone",file:"La_Tahzanu_Ala_naat_Ringtone_By_NOOR_TONES.mp3",category:"Islamic"},
+  {name:"La Tahzanu Ala | Naat Ringtone | Instagram Viral Ringtone 2026",file:"La_Tahzanu_Ala_naat_Ringtone_By_NOOR_TONES.mp3",category:"Islamic"},
   {name:"YA ALI Ringtone | Instagram Viral Ringtone | New Mobile Ringtone 2026",file:"Ali_Ali_Mobile_Ringtone_By_NOOR_TONES.mp3",category:"Nasheed"},
   {name:"Ringtone 3",file:"tone3.mp3",category:"Naat"},
   {name:"Ringtone 4",file:"tone4.mp3",category:"Iphone"},
