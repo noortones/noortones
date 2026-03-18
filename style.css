@@ -1,0 +1,167 @@
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+  font-family:sans-serif;
+  background:#f5f5f5;
+  display:flex;
+  justify-content:center;
+}
+
+.container{
+  max-width:900px;
+  width:100%;
+}
+
+/* HEADER */
+.header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:22px;
+  background:#006400;
+  color:#fff;
+  position:sticky;
+  top:0;
+}
+
+.logo-text{
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  font-size:24px;
+  color:#D4AF37;
+  font-weight:700;
+}
+
+.menu-btn{font-size:22px;cursor:pointer;}
+
+.social a{
+  margin-left:10px;
+  font-size:18px;
+  text-decoration:none;
+}
+
+/* MENU */
+.side-menu{
+  position:fixed;
+  left:-260px;
+  top:0;
+  width:260px;
+  height:100%;
+  background:#0b3d0b;
+  transition:.3s;
+}
+.side-menu.show{left:0;}
+
+.side-menu a{
+  display:block;
+  padding:15px;
+  color:#fff;
+}
+
+.overlay{
+  display:none;
+  position:fixed;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,.5);
+}
+.overlay.show{display:block;}
+
+/* SEARCH */
+.search-box{
+  display:flex;
+  justify-content:center;
+  margin:15px;
+}
+
+.search-box input{
+  width:70%;
+  padding:12px;
+  border:2px solid #D4AF37;
+  border-radius:30px 0 0 30px;
+}
+
+.search-btn{
+  padding:12px;
+  border:2px solid #D4AF37;
+  background:#006400;
+  color:#fff;
+  border-radius:0 30px 30px 0;
+}
+
+/* TAGS */
+.categories{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  margin:8px;
+  flex-wrap:wrap;
+}
+
+.categories span{
+  background:#006400;
+  color:#fff;
+  padding:6px 14px;
+  border-radius:20px;
+  font-size:12px;
+}
+
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+  gap:15px;
+  padding:10px;
+}
+
+/* CARD */
+.card{
+  background:#fff;
+  border:2px solid #D4AF37;
+  border-radius:14px;
+  padding:10px;
+}
+
+.title{
+  margin-bottom:10px;
+  color:#006400;
+  font-weight:600;
+}
+
+.card audio{
+  width:100%;
+  margin:12px 0;
+  border-radius:20px;
+}
+
+/* BUTTONS */
+.card button{
+  padding:6px 10px;
+  margin:3px;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
+}
+
+.download{background:#006400;color:#fff;}
+.share{background:#D4AF37;color:#fff;}
+.like{background:#10B981;color:#fff;}
+
+/* ADS */
+.ad{
+  grid-column:1/-1;
+  background:#ddd;
+  text-align:center;
+  padding:12px;
+  border-radius:10px;
+}
+
+/* FOOTER */
+footer{
+  background:#006400;
+  color:#fff;
+  text-align:center;
+  padding:15px;
+  margin-top:20px;
+}
