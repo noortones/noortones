@@ -8,7 +8,7 @@ const songs = [
   {name:"The Sins Nasheed | Nasheed Ringtone Dawnload",file:"The_Sins_Nasheed_Ringtone_By_NOOR_TONES.mp3",category:"Nasheed"},
   {name:"Azan Ringtnoe | Best Mobile Ringtone",file:"Azan_Fajar_Alaram&Ringtone_By_NOOR_TONES.mp3",category:"Islamic"},
   {name:"Liyakun Liyakun Ringtone Dawnload | Best MObile Ringtone Dawnload",file:"Liyakun_Liyakun_Arabic_Best_Ringtone_By_NOOR_TONES.mp3",category:"Islamic"},
-  {name:"Ringtone 7",file:"tone7.mp3",category:"Best"},
+  {name:"YA Quluban Nasheed Ringtone Dawnload | Best Mobile Ringtone Dawnload",file:"Ya_Quluban_Nasheed_Ringtone_By_NOOR_TONES.mp3",category:"Best"},
   {name:"Ringtone 8",file:"tone8.mp3",category:"Islamic"},
   {name:"Ringtone 9",file:"tone8.mp3",category:"Islamic"},
   {name:"Ringtone 10",file:"tone8.mp3",category:"Islamic"},
