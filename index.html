@@ -3,8 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Noor Tons</title>
 
+<!-- Browser Theme -->
 <meta name="theme-color" content="#006400">
 
 <link rel="stylesheet" href="style.css">
@@ -29,25 +31,26 @@
 
 <!-- SEARCH -->
 <div class="search-box">
-  <input type="text" placeholder="Search ringtone...">
-  <button class="search-btn">🔍</button>
+  <input type="text" id="search" placeholder="Search ringtone...">
+  <button class="search-btn" onclick="searchRingtone()">🔍</button>
 </div>
 
-<!-- TAGS -->
+<!-- TAGS TOP -->
 <div class="categories">
-  <span>Islamic</span>
-  <span>Nasheed</span>
-  <span>Naat</span>
-  <span>Iphone</span>
+  <span onclick="filterCategory('Islamic')">Islamic</span>
+  <span onclick="filterCategory('Nasheed')">Nasheed</span>
+  <span onclick="filterCategory('Naat')">Naat</span>
+  <span onclick="filterCategory('Iphone')">Iphone</span>
 </div>
 
+<!-- TAGS BOTTOM -->
 <div class="categories">
-  <span>Notification</span>
-  <span>Instagram</span>
-  <span>Best 2026</span>
+  <span onclick="filterCategory('Notification')">Notification</span>
+  <span onclick="filterCategory('Instagram')">Instagram</span>
+  <span onclick="filterCategory('Best')">Best 2026</span>
 </div>
 
-<!-- GRID -->
+<!-- GRID (CARDS HERE) -->
 <div class="grid" id="grid"></div>
 
 <!-- FOOTER AD -->
@@ -56,7 +59,10 @@
 <!-- FOOTER -->
 <footer>
   <h3>Noor Tons</h3>
-  <p>Free trending Islamic ringtones download karein asaani se. High quality tones aur fast download.</p>
+  <p>
+    Free trending Islamic ringtones download karein asaani se. 
+    High quality tones, fast download aur daily updates.
+  </p>
 
   <p>📧 Contact: noortones@email.com</p>
 </footer>
@@ -64,5 +70,6 @@
 </div>
 
 <script src="script.js"></script>
+
 </body>
 </html>
