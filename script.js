@@ -1,38 +1,43 @@
-function toggleMenu(){
-  menu.classList.toggle("show");
-  overlay.classList.toggle("show");
-}
-
-const songs=[
-{name:"Ringtone 1",file:"tone1.mp3"},
-{name:"Ringtone 2",file:"tone2.mp3"},
-{name:"Ringtone 3",file:"tone3.mp3"},
-{name:"Ringtone 4",file:"tone4.mp3"},
-{name:"Ringtone 5",file:"tone5.mp3"},
-{name:"Ringtone 6",file:"tone6.mp3"},
-{name:"Ringtone 7",file:"tone7.mp3"},
-{name:"Ringtone 8",file:"tone8.mp3"}
+// SONG DATA
+const songs = [
+  {name:"Ringtone 1",file:"tone1.mp3",category:"Islamic"},
+  {name:"Ringtone 2",file:"tone2.mp3",category:"Nasheed"},
+  {name:"Ringtone 3",file:"tone3.mp3",category:"Naat"},
+  {name:"Ringtone 4",file:"tone4.mp3",category:"Iphone"},
+  {name:"Ringtone 5",file:"tone5.mp3",category:"Notification"},
+  {name:"Ringtone 6",file:"tone6.mp3",category:"Instagram"},
+  {name:"Ringtone 7",file:"tone7.mp3",category:"Best"},
+  {name:"Ringtone 8",file:"tone8.mp3",category:"Islamic"}
 ];
 
-const grid=document.getElementById("grid");
+const grid = document.getElementById("grid");
 
-songs.forEach((s,i)=>{
-  if(i===4){
-    grid.innerHTML+=`<div class="ad">Ads Here</div>`;
-  }
+// LOAD SONGS
+function loadSongs(list){
+  grid.innerHTML = "";
 
-  grid.innerHTML+=`
-  <div class="card">
-    <div class="title">${s.name}</div>
-    <audio controls src="${s.file}"></audio>
+  list.forEach((s,i)=>{
+    if(i===4){
+      grid.innerHTML += `<div class="ad">Ads Here</div>`;
+    }
 
-    <button class="download" onclick="download('${s.file}')">Download</button>
-    <button class="share" onclick="share('${s.file}')">Share</button>
-    <button class="like" onclick="save('${s.name}')">❤️</button>
-  </div>`;
-});
+    grid.innerHTML += `
+    <div class="card">
+      <div class="title">${s.name}</div>
 
-/* DOWNLOAD WITH AD FEEL */
+      <audio controls src="${s.file}"></audio>
+
+      <button class="download" onclick="download('${s.file}')">Download</button>
+      <button class="share" onclick="share('${s.file}')">Share</button>
+      <button class="like" onclick="save('${s.name}')">❤️</button>
+    </div>`;
+  });
+}
+
+// INITIAL LOAD
+loadSongs(songs);
+
+// DOWNLOAD
 function download(file){
   alert("Ad loading...");
   setTimeout(()=>{
@@ -40,33 +45,48 @@ function download(file){
   },1500);
 }
 
-/* SHARE */
+// SHARE (FIXED)
 function share(file){
+  const url = window.location.href;
+
   if(navigator.share){
     navigator.share({
       title:"Noor Tons",
-      url:file
+      text:"Download ringtone from Noor Tons",
+      url:url
     });
   }else{
-    alert("Sharing not supported");
+    navigator.clipboard.writeText(url);
+    alert("Link copied ✅");
   }
 }
 
-/* SAVE */
+// SAVE (NO DUPLICATE)
 function save(name){
-  let saved=JSON.parse(localStorage.getItem("saved"))||[];
-  saved.push(name);
-  localStorage.setItem("saved",JSON.stringify(saved));
-  alert("Saved ❤️");
-}
-function playAudio(btn){
-  const player = btn.parentElement;
-  const audio = player.querySelector("audio");
+  let saved = JSON.parse(localStorage.getItem("saved")) || [];
 
-  if(audio.paused){
-    audio.play();
-    btn.innerText="⏸";
+  if(!saved.includes(name)){
+    saved.push(name);
+    localStorage.setItem("saved", JSON.stringify(saved));
+    alert("Saved ❤️");
   }else{
-    audio.pause();
-    btn.innerText="▶";
+    alert("Already saved");
   }
+}
+
+// SEARCH
+function searchRingtone(){
+  const value = document.getElementById("search").value.toLowerCase();
+
+  const filtered = songs.filter(s => 
+    s.name.toLowerCase().includes(value)
+  );
+
+  loadSongs(filtered);
+}
+
+// CATEGORY FILTER
+function filterCategory(cat){
+  const filtered = songs.filter(s => s.category === cat);
+  loadSongs(filtered);
+}
