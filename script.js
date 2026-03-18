@@ -32,10 +32,15 @@ songs.forEach((s,i)=>{
   </div>`;
 });
 
+/* DOWNLOAD WITH AD FEEL */
 function download(file){
-  window.open(file);
+  alert("Ad loading...");
+  setTimeout(()=>{
+    window.open(file);
+  },1500);
 }
 
+/* SHARE */
 function share(file){
   if(navigator.share){
     navigator.share({
@@ -43,10 +48,11 @@ function share(file){
       url:file
     });
   }else{
-    alert("Share not supported");
+    alert("Sharing not supported");
   }
 }
 
+/* SAVE */
 function save(name){
   let saved=JSON.parse(localStorage.getItem("saved"))||[];
   saved.push(name);
