@@ -59,3 +59,14 @@ function save(name){
   localStorage.setItem("saved",JSON.stringify(saved));
   alert("Saved ❤️");
 }
+function playAudio(btn){
+  const player = btn.parentElement;
+  const audio = player.querySelector("audio");
+
+  if(audio.paused){
+    audio.play();
+    btn.innerText="⏸";
+  }else{
+    audio.pause();
+    btn.innerText="▶";
+  }
