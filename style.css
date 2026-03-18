@@ -17,7 +17,7 @@ body{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:22px;
+  padding:26px 22px;
   background:#006400;
   color:#fff;
   position:sticky;
@@ -150,11 +150,14 @@ body{
 
 /* ADS */
 .ad{
-  grid-column:1/-1;
-  background:#ddd;
+  width:90%;
+  margin:12px auto;
+  background:#e5e5e5;
+  padding:14px;
   text-align:center;
-  padding:12px;
-  border-radius:10px;
+  border-radius:12px;
+  font-weight:600;
+  border:1px dashed #999;
 }
 
 /* FOOTER */
@@ -163,5 +166,5 @@ footer{
   color:#fff;
   text-align:center;
   padding:15px;
-  margin-top:20px;
+  margin-top:10px;
 }
