@@ -9,7 +9,11 @@ const songs = [
   {name:"Ringtone 5",file:"tone5.mp3",category:"Notification"},
   {name:"Ringtone 6",file:"tone6.mp3",category:"Instagram"},
   {name:"Ringtone 7",file:"tone7.mp3",category:"Best"},
-  {name:"Ringtone 8",file:"tone8.mp3",category:"Islamic"}
+  {name:"Ringtone 8",file:"tone8.mp3",category:"Islamic"},
+  {name:"Ringtone 9",file:"tone8.mp3",category:"Islamic"},
+  {name:"Ringtone 10",file:"tone8.mp3",category:"Islamic"},
+  {name:"Ringtone 11",file:"tone8.mp3",category:"Islamic"},
+  {name:"Ringtone 12",file:"tone8.mp3",category:"Islamic"}
 ];
 
 const grid = document.getElementById("grid");
