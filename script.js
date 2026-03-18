@@ -5,7 +5,7 @@ const songs = [
   {name:"La Tahzanu Ala Ringtone Download | BEst  Ringtone 2026",file:"La_Tahzanu_Ala_naat_Ringtone_By_NOOR_TONES.mp3",category:"Islamic" },
   {name:"YA ALI Ringtone Download | Best Mobile Ringtone ",file:"Ali_Ali_Mobile_Ringtone_By_NOOR_TONES.mp3",category:"Instagram"},
   {name:"Eta Kulli DA Ringtone Download",file:"Eta_Kulli_Da_Ringtone_By_NOOR_TONES.mp3",category:"Instagram"},
-  {name:"Ringtone 4",file:"tone4.mp3",category:"Iphone"},
+  {name:"The Sins Nasheed | Nasheed Ringtone",file:"The_Sins_Nasheed_Ringtone_By_NOOR_TONES.mp3",category:"Iphone"},
   {name:"Ringtone 5",file:"tone5.mp3",category:"Notification"},
   {name:"Ringtone 6",file:"tone6.mp3",category:"Instagram"},
   {name:"Ringtone 7",file:"tone7.mp3",category:"Best"},
