@@ -1,111 +1,57 @@
-// WAIT FOR PAGE LOAD
-document.addEventListener("DOMContentLoaded", () => {
-
-const songs = [
-  {name:"La Tahzanu Ala Ringtone Download | Best  Ringtone 2026 Dawnload",file:"La_Tahzanu_Ala_naat_Ringtone_By_NOOR_TONES.mp3",category:"Islamic" },
-  {name:"YA ALI Ringtone Download | Best Mobile Ringtone Dawnload ",file:"Ali_Ali_Mobile_Ringtone_By_NOOR_TONES.mp3",category:"Islamic"},
-  {name:"Eta Kulli DA Ringtone Download | New Mobile Ringtone Dawnload",file:"Eta_Kulli_Da_Ringtone_By_NOOR_TONES.mp3",category:"Instagram"},
-  {name:"The Sins Nasheed Dawnload | Nasheed Ringtone Dawnload",file:"The_Sins_Nasheed_Ringtone_By_NOOR_TONES.mp3",category:"Nasheed"},
-  {name:"Azan Ringtnoe Dawnload | Best Mobile Ringtone Dawnload",file:"Azan_Fajar_Alaram&Ringtone_By_NOOR_TONES.mp3",category:"Islamic"},
-  {name:"Liyakun Liyakun Ringtone Dawnload | Best MObile Ringtone Dawnload",file:"Liyakun_Liyakun_Arabic_Best_Ringtone_By_NOOR_TONES.mp3",category:"Islamic"},
-  {name:"YA Quluban Nasheed Ringtone Dawnload | Best Mobile Ringtone Dawnload",file:"Ya_Quluban_Nasheed_Ringtone_By_NOOR_TONES.mp3",category:"Nasheed"},
-  {name:"Ringtone 8",file:"tone8.mp3",category:"Islamic"},
-  {name:"Ringtone 9",file:"tone8.mp3",category:"Islamic"},
-  {name:"Ringtone 10",file:"tone8.mp3",category:"Islamic"},
-  {name:"Ringtone 11",file:"tone8.mp3",category:"Islamic"},
-  {name:"Ringtone 12",file:"tone8.mp3",category:"Islamic"}
+const songs=[
+{name:"Ringtone 1",file:"tone1.mp3"},
+{name:"Ringtone 2",file:"tone2.mp3"},
+{name:"Ringtone 3",file:"tone3.mp3"},
+{name:"Ringtone 4",file:"tone4.mp3"},
+{name:"Ringtone 5",file:"tone5.mp3"},
+{name:"Ringtone 6",file:"tone6.mp3"},
+{name:"Ringtone 7",file:"tone7.mp3"},
+{name:"Ringtone 8",file:"tone8.mp3"}
 ];
 
-const grid = document.getElementById("grid");
+const grid=document.getElementById("grid");
 
-// LOAD FUNCTION
-function loadSongs(list){
-  grid.innerHTML = "";
+songs.forEach((s,i)=>{
 
-  list.forEach((s,i)=>{
+  grid.innerHTML+=`
+  <div class="card" onclick="openPage(${i})">
+    <div class="title">${s.name}</div>
+    <audio controls src="${s.file}"></audio>
 
-    // AD AFTER 4 CARDS
-    if(i === 4){
-      const ad = document.createElement("div");
-      ad.className = "ad";
-      ad.innerText = "Ads Here";
-      grid.appendChild(ad); 
-    
-    }
+    <button class="download" onclick="event.stopPropagation();download('${s.file}')">Download</button>
+    <button class="share" onclick="event.stopPropagation();share('${s.file}')">Share</button>
+    <button class="like" onclick="event.stopPropagation();save('${s.name}')">❤️</button>
+  </div>`;
 
-    const card = document.createElement("div");
-    card.className = "card";
+  // ADS AFTER EVERY 4
+  if((i+1)%4===0){
+    grid.innerHTML+=`<div class="ad">Ads Here</div>`;
+  }
 
-    card.innerHTML = `
-      <div class="title">${s.name}</div>
-      <audio controls src="${s.file}"></audio>
+});
 
-      <button class="download">Download</button>
-      <button class="share">Share</button>
-      <button class="like">❤️</button>
-    `;
-
-    // BUTTON EVENTS
-    card.querySelector(".download").onclick = () => download(s.file);
-    card.querySelector(".share").onclick = () => share();
-    card.querySelector(".like").onclick = () => save(s.name);
-
-    grid.appendChild(card);
-  });
+function openPage(id){
+  window.location.href="ringtone.html?id="+id;
 }
 
-// INITIAL LOAD
-loadSongs(songs);
-
-// DOWNLOAD
 function download(file){
   alert("Ad loading...");
   setTimeout(()=>{
     window.open(file);
-  },1500);
+  },1000);
 }
 
-// SHARE
-function share(){
-  const url = window.location.href;
-
+function share(file){
   if(navigator.share){
     navigator.share({
       title:"Noor Tons",
-      url:url
+      url:window.location.href
     });
   }else{
-    navigator.clipboard.writeText(url);
-    alert("Link copied ✅");
+    alert("Sharing not supported");
   }
 }
 
-// SAVE
 function save(name){
-  let saved = JSON.parse(localStorage.getItem("saved")) || [];
-
-  if(!saved.includes(name)){
-    saved.push(name);
-    localStorage.setItem("saved", JSON.stringify(saved));
-    alert("Saved ❤️");
-  }
+  alert("Saved ❤️");
 }
-
-// SEARCH
-window.searchRingtone = function(){
-  const value = document.getElementById("search").value.toLowerCase();
-
-  const filtered = songs.filter(s => 
-    s.name.toLowerCase().includes(value)
-  );
-
-  loadSongs(filtered);
-}
-
-// FILTER
-window.filterCategory = function(cat){
-  const filtered = songs.filter(s => s.category === cat);
-  loadSongs(filtered);
-}
-
-});
