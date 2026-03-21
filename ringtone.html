@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ringtone</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<header class="header">
+  <div class="logo-text">NOOR TONES</div>
+</header>
+
+<div class="card" id="main"></div>
+
+<h3 style="margin:10px;">Related</h3>
+<div class="grid" id="related"></div>
+
+</div>
+
+<script>
+
+const songs=[
+{name:"Ringtone 1",file:"tone1.mp3"},
+{name:"Ringtone 2",file:"tone2.mp3"},
+{name:"Ringtone 3",file:"tone3.mp3"},
+{name:"Ringtone 4",file:"tone4.mp3"},
+{name:"Ringtone 5",file:"tone5.mp3"},
+{name:"Ringtone 6",file:"tone6.mp3"},
+{name:"Ringtone 7",file:"tone7.mp3"},
+{name:"Ringtone 8",file:"tone8.mp3"}
+];
+
+const id=new URLSearchParams(location.search).get("id");
+
+const main=document.getElementById("main");
+const s=songs[id];
+
+main.innerHTML=`
+<div class="title">${s.name}</div>
+<audio controls src="${s.file}"></audio>
+<button class="download" onclick="download('${s.file}')">Download</button>
+`;
+
+const related=document.getElementById("related");
+
+songs.forEach((item,i)=>{
+  if(i!=id){
+    related.innerHTML+=`
+    <div class="card" onclick="openPage(${i})">
+      <div class="title">${item.name}</div>
+      <audio controls src="${item.file}"></audio>
+    </div>`;
+  }
+});
+
+function openPage(id){
+  location.href="ringtone.html?id="+id;
+}
+
+function download(file){
+  window.open(file);
+}
+
+</script>
+
+</body>
+</html>
