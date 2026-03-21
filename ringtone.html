@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Download Ringtone</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<header class="header">
+  NOOR TONES
+</header>
+
+<!-- BIG CARD -->
+<div id="main"></div>
+
+<!-- AD -->
+<div class="ad">Ad Space</div>
+
+<h3 style="padding:10px;">More Ringtones</h3>
+
+<!-- RELATED -->
+<div class="grid" id="related"></div>
+
+<!-- AD -->
+<div class="ad">Ad Space</div>
+
+</div>
+
+<script>
+
+const songs=[
+{name:"Ringtone 1",file:"tone1.mp3"},
+{name:"Ringtone 2",file:"tone2.mp3"},
+{name:"Ringtone 3",file:"tone3.mp3"},
+{name:"Ringtone 4",file:"tone4.mp3"}
+];
+
+const id=new URLSearchParams(location.search).get("id");
+const s=songs[id];
+
+// MAIN BIG CARD
+document.getElementById("main").innerHTML=`
+<div class="big">
+<h2>${s.name}</h2>
+
+<audio controls src="${s.file}"></audio>
+
+<button class="download" onclick="download('${s.file}')">Download</button>
+<button class="share" onclick="share()">Share</button>
+<button class="save" onclick="save()">❤️ Save</button>
+</div>
+`;
+
+// RELATED
+const related=document.getElementById("related");
+
+songs.forEach((item,i)=>{
+  if(i!=id){
+    related.innerHTML+=`
+    <div class="card" onclick="openPage(${i})">
+      ${item.name}
+    </div>`;
+  }
+});
+
+// FUNCTIONS
+function openPage(i){
+  location.href="ringtone.html?id="+i;
+}
+
+function download(file){
+  alert("Ad loading...");
+  setTimeout(()=>{window.open(file)},1000);
+}
+
+function share(){
+  if(navigator.share){
+    navigator.share({
+      title:"Noor Tons",
+      url:location.href
+    });
+  }else{
+    alert("Link copied");
+  }
+}
+
+function save(){
+  alert("Saved ❤️");
+}
+
+</script>
+
+</body>
+</html>
