@@ -2,7 +2,7 @@
 // 🎧 SONG DATA (EDIT HERE)
 // =========================
 const songs = [
-  { name: "Naat 1", file: "tones/tone1.mp3" },
+  { name: "La Tahzanu Ala Ringtone Dawnload", file: "La_Tahzanu_Ala_naat_Ringtone_By_NOOR_TONES.mp3" },
   { name: "Naat 2", file: "tones/tone2.mp3" },
   { name: "Naat 3", file: "tones/tone3.mp3" },
   { name: "Naat 4", file: "tones/tone4.mp3" },
