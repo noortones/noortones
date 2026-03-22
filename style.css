@@ -16,7 +16,7 @@ margin:auto;
 display:flex;
 justify-content:space-between;
 align-items:center;
-background:#006400;
+background:linear-gradient(90deg,#006400,#008000);
 padding:18px;
 }
 
@@ -25,11 +25,7 @@ color:#D4AF37;
 font-weight:bold;
 }
 
-.right a{
-margin-left:6px;
-}
-
-/* NAV BUTTON */
+/* NAV */
 .nav-btn{
 background:#D4AF37;
 color:#000;
@@ -63,12 +59,17 @@ border:2px solid #D4AF37;
 .card{
 display:flex;
 align-items:center;
-justify-content:space-between;
+gap:10px;
 background:#fff;
 border:2px solid #D4AF37;
 border-radius:12px;
-padding:10px;
+padding:12px;
 margin:10px;
+transition:0.3s;
+}
+
+.card:hover{
+transform:scale(1.02);
 }
 
 /* PLAY */
@@ -84,7 +85,7 @@ justify-content:center;
 }
 
 /* INFO */
-.info{flex:1;margin:0 10px;}
+.info{flex:1;}
 
 .title{
 font-weight:600;
@@ -137,17 +138,24 @@ overflow:hidden;
 
 /* BUTTON */
 button{
-padding:7px 12px;
+padding:8px 14px;
 border:none;
-border-radius:8px;
+border-radius:10px;
 cursor:pointer;
+transition:0.3s;
 }
 
+button:hover{
+transform:scale(1.08);
+}
+
+/* DOWNLOAD */
 .download{
-background:#D4AF37;
+background:linear-gradient(45deg,#D4AF37,#FFD700);
 font-weight:bold;
 }
 
+/* SHARE */
 .share{
 background:#006400;
 color:#fff;
