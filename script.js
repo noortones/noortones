@@ -1,6 +1,3 @@
-// =========================
-// 🎧 SONG DATA
-// =========================
 const songs = [
 { name:"Naat 1", file:"tones/naat1.mp3", category:"naat" },
 { name:"Naat 2", file:"tones/naat2.mp3", category:"naat" },
@@ -10,21 +7,12 @@ const songs = [
 { name:"Notification", file:"tones/noti1.mp3", category:"notification" }
 ];
 
-// duplicate to 100
 while(songs.length < 100){ songs.push(...songs); }
 songs.length = 100;
 
-
-// =========================
-// 📦 GLOBAL
-// =========================
 const list = document.getElementById("list");
 let currentAudio = null;
 
-
-// =========================
-// 🏠 HOME PAGE
-// =========================
 if(list){
 songs.forEach((s,i)=>{
 
@@ -34,7 +22,7 @@ list.innerHTML += `
 <div class="play" onclick="playAudio(${i},this)">▶</div>
 
 <div class="info">
-<div class="title">${s.name}</div>
+<div>${s.name}</div>
 
 <div class="progress-bar">
 <div class="progress" id="progress${i}"></div>
@@ -60,89 +48,49 @@ list.innerHTML += `<div class="ad">Ad Space</div>`;
 });
 }
 
-
-// =========================
-// ▶ PLAY AUDIO
-// =========================
 function playAudio(i,btn){
 const audio=document.getElementById("audio"+i);
-const progress=document.getElementById("progress"+i);
-const time=document.getElementById("time"+i);
 
 if(currentAudio && currentAudio!==audio){
 currentAudio.pause();
 }
 
 if(audio.paused){
-audio.play();
-btn.innerText="⏸";
-currentAudio=audio;
+audio.play(); btn.innerText="⏸"; currentAudio=audio;
 }else{
-audio.pause();
-btn.innerText="▶";
+audio.pause(); btn.innerText="▶";
+}
 }
 
-audio.ontimeupdate=()=>{
-let p=(audio.currentTime/audio.duration)*100;
-progress.style.width=p+"%";
-
-let s=Math.floor(audio.currentTime);
-time.innerText="0:"+(s<10?"0"+s:s);
-};
-}
-
-
-// =========================
-// 🔗 OPEN PAGE
-// =========================
 function openPage(id){
 location.href="ringtone.html?id="+id;
 }
 
-
-// =========================
-// 📤 SHARE
-// =========================
 function sharePage(id){
 const url=location.origin+"/ringtone.html?id="+id;
 
 if(navigator.share){
-navigator.share({
-title:"Noor Tons Ringtone",
-url:url
-});
+navigator.share({url});
 }else{
 navigator.clipboard.writeText(url);
 alert("Link copied!");
 }
 }
 
-
-// =========================
-// 🔍 SEARCH
-// =========================
 document.querySelector("input")?.addEventListener("input",e=>{
 let val=e.target.value.toLowerCase();
-
 document.querySelectorAll(".card").forEach(c=>{
 c.style.display=c.innerText.toLowerCase().includes(val)?"flex":"none";
 });
 });
 
-
-// =========================
-// 📂 CATEGORY FILTER
-// =========================
 function filterCategory(cat){
 document.querySelectorAll(".card").forEach(card=>{
 card.style.display = (cat==="all"||card.dataset.cat===cat) ? "flex":"none";
 });
 }
 
-
-// =========================
-// 🎧 RINGTONE PAGE
-// =========================
+// RINGTONE PAGE
 const main=document.getElementById("main");
 
 if(main){
@@ -154,10 +102,9 @@ main.innerHTML=`
 
 <h2>${song.name}</h2>
 
-<audio id="player" src="${song.file}"></audio>
+<audio controls src="${song.file}"></audio>
 
-<div class="actions" style="justify-content:center; margin-top:15px;">
-<button onclick="player.play()">▶ Play</button>
+<div class="actions">
 <button class="download" onclick="download()">⬇ Download</button>
 <button class="share" onclick="sharePage(${id})">Share 🔗</button>
 </div>
@@ -165,11 +112,20 @@ main.innerHTML=`
 </div>
 `;
 
+const related=document.getElementById("related");
+
+for(let i=0;i<10;i++){
+if(i!=id){
+related.innerHTML += `
+<div class="card" onclick="openPage(${i})">
+${songs[i].name}
+</div>
+`;
+}
+}
+
 window.download=()=>{
 alert("Ad loading...");
-setTimeout(()=>{
-window.open(song.file);
-},1200);
+setTimeout(()=>window.open(song.file),1200);
 };
-
 }
