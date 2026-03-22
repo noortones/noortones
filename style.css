@@ -1,13 +1,19 @@
-body{
+*{
   margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
   font-family:sans-serif;
   background:#F7FAF5;
+  overflow-x:hidden; /* ZOOM FIX */
 }
 
 .container{
   max-width:900px;
   margin:auto;
-  padding:10px;
+  width:100%;
 }
 
 /* HEADER */
@@ -16,40 +22,40 @@ body{
   justify-content:space-between;
   align-items:center;
   background:#006400;
-  padding:15px;
+  padding:16px;
 }
 
 .logo{
   color:#D4AF37;
+  font-size:20px;
   font-weight:bold;
 }
 
 .social a{
   margin-left:10px;
+  font-size:18px;
   text-decoration:none;
 }
 
 /* SEARCH */
+.search-box{
+  position:relative;
+  padding:10px;
+}
+
 .search-box input{
   width:100%;
-  padding:10px;
-  border-radius:20px;
+  padding:12px;
+  border-radius:25px;
   border:2px solid #D4AF37;
-  margin:10px 0;
+  font-size:14px;
 }
 
-/* TAGS */
-.tags{
-  display:flex;
-  gap:8px;
-  flex-wrap:wrap;
-}
-
-.tags span{
-  background:#006400;
-  color:#fff;
-  padding:6px 10px;
-  border-radius:15px;
+.search-box .icon{
+  position:absolute;
+  right:25px;
+  top:50%;
+  transform:translateY(-50%);
 }
 
 /* CARD */
@@ -61,40 +67,53 @@ body{
   border:2px solid #D4AF37;
   border-radius:12px;
   padding:10px;
-  margin-bottom:10px;
+  margin:10px;
 }
 
-/* PLAY */
+/* PLAY BUTTON */
 .play{
-  width:40px;
-  height:40px;
+  width:42px;
+  height:42px;
   border-radius:50%;
   background:#006400;
   color:#fff;
   display:flex;
   align-items:center;
   justify-content:center;
+  cursor:pointer;
 }
 
 /* INFO */
 .info{
   flex:1;
   margin:0 10px;
+  font-size:14px;
 }
 
-/* BUTTON */
+/* BUTTONS */
 .actions button{
   margin-left:5px;
-  padding:5px;
+  padding:6px;
   border:none;
   border-radius:5px;
+  cursor:pointer;
 }
 
 /* ADS */
 .ad{
-  background:#ddd;
-  padding:10px;
+  margin:10px;
+  padding:12px;
+  background:#e5e5e5;
   text-align:center;
   border-radius:10px;
-  margin:10px 0;
+}
+
+/* FOOTER */
+.footer{
+  background:#006400;
+  color:#fff;
+  text-align:center;
+  padding:25px 15px;
+  margin-top:20px;
+  line-height:1.6;
 }
