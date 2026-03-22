@@ -1,8 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Noor Tons</title>
+<meta charset="UTF-8">
+
+<!-- ZOOM FIX -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- BROWSER THEME -->
+<meta name="theme-color" content="#006400">
+
+<title>Noor Tons - Free Islamic Ringtones</title>
 
 <link rel="stylesheet" href="style.css">
 </head>
@@ -24,25 +31,40 @@
 <!-- SEARCH -->
 <div class="search-box">
   <input type="text" placeholder="Search ringtone...">
-</div>
-
-<!-- TAGS -->
-<div class="tags">
-  <span>Naat</span>
-  <span>Nasheed</span>
-  <span>Trending</span>
-  <span>iPhone</span>
-  <span>Notification</span>
+  <span class="icon">🔍</span>
 </div>
 
 <!-- CARDS -->
 <div id="list"></div>
 
+<!-- ABOUT + FOOTER -->
+<footer class="footer">
+
+  <h2>Noor Tons</h2>
+
+  <p>
+    Noor Tons ek professional Islamic ringtone website hai jahan aapko
+    high quality Naat, Nasheed, Azan aur trending ringtones free download
+    karne ke liye milte hain. Hamari website fast, secure aur user-friendly
+    hai jisse aap bina kisi dikkat ke apni pasand ke tones download kar
+    sakte hain.
+  </p>
+
+  <p>
+    Yahan par aapko latest aur trending ringtone collection milta hai jo
+    regularly update hota rehta hai. Noor Tons ka aim hai users ko best
+    quality aur easy download experience dena.
+  </p>
+
+  <p>📧 Contact: noortones@email.com</p>
+
+</footer>
+
 </div>
 
 <script>
 
-// 100 CARDS
+// ===== 100 CARDS =====
 const container = document.getElementById("list");
 
 for(let i=1;i<=100;i++){
@@ -53,8 +75,8 @@ for(let i=1;i<=100;i++){
     <div class="play" onclick="playAudio(${i})">▶</div>
 
     <div class="info">
-      Ringtone ${i}
-      <audio id="audio${i}" src="tone1.mp3"></audio>
+      <div>Ringtone ${i}</div>
+      <audio id="audio${i}" src="tones/tone1.mp3"></audio>
     </div>
 
     <div class="actions">
@@ -66,21 +88,25 @@ for(let i=1;i<=100;i++){
   </div>
   `;
 
-  // ADS after 6
-  if(i%6===0){
+  // ADS हर 6 के बाद
+  if(i % 6 === 0){
     container.innerHTML += `<div class="ad">Ad Space</div>`;
   }
 }
 
-// PLAY
+// PLAY FIX
 function playAudio(i){
-  let audio = document.getElementById("audio"+i);
-  audio.paused ? audio.play() : audio.pause();
+  const audio = document.getElementById("audio"+i);
+
+  // pause all
+  document.querySelectorAll("audio").forEach(a=>a.pause());
+
+  audio.play();
 }
 
-// OPEN PAGE
+// NEXT PAGE (future)
 function openPage(id){
-  alert("Next page open hoga (abhi simple version)");
+  alert("Download page next step me banega");
 }
 
 </script>
