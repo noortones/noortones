@@ -1,7 +1,7 @@
 body{
   margin:0;
   font-family:sans-serif;
-  background:#f5f7f5;
+  background:#F7FAF5; /* light islamic */
 }
 
 .container{
@@ -17,17 +17,17 @@ body{
   align-items:center;
   background:#006400;
   padding:15px;
-  color:#D4AF37;
 }
 
 .logo{
+  color:#D4AF37;
   font-weight:bold;
 }
 
 .social a{
   margin-left:10px;
-  text-decoration:none;
   font-size:18px;
+  text-decoration:none;
 }
 
 /* SEARCH */
@@ -64,16 +64,6 @@ body{
   border-radius:12px;
   padding:10px;
   margin-bottom:10px;
-}
-
-/* BIG CARD */
-.big{
-  background:#fff;
-  border:2px solid #D4AF37;
-  border-radius:15px;
-  padding:20px;
-  margin:10px 0;
-  text-align:center;
 }
 
 /* PLAY BUTTON */
