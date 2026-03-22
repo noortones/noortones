@@ -3,7 +3,7 @@
 // =========================
 const songs = [
   { name: "La Tahzanu Ala Ringtone Dawnload", file: "La_Tahzanu_Ala_naat_Ringtone_By_NOOR_TONES.mp3" },
-  { name: "Naat 2", file: "tones/tone2.mp3" },
+  { name: "Ali Ali Ringtone Dawnload", file: "Ali_Ali_Mobile_Ringtone_By_NOOR_TONES.mp3" },
   { name: "Naat 3", file: "tones/tone3.mp3" },
   { name: "Naat 4", file: "tones/tone4.mp3" },
   { name: "Naat 5", file: "tones/tone5.mp3" }
