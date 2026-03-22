@@ -12,10 +12,21 @@
 
 <div class="container">
 
+<!-- SAME HEADER -->
 <header class="header">
-  <div class="logo">NOOR TONES</div>
+  <div class="left">
+    <button onclick="goBack()" class="back">⬅</button>
+    <span class="logo">NOOR TONES</span>
+  </div>
+
+  <div class="right">
+    <a href="index.html">🏠</a>
+    <a href="#">📺</a>
+    <a href="#">📸</a>
+  </div>
 </header>
 
+<!-- MAIN -->
 <div id="main"></div>
 
 <div class="ad">Ad Space</div>
@@ -23,15 +34,27 @@
 <h3 style="padding:10px;">Related</h3>
 <div id="related"></div>
 
+<!-- FOOTER -->
+<footer class="footer">
+  <h2>Noor Tons</h2>
+  <p>Best Islamic ringtone platform with free download.</p>
+</footer>
+
 </div>
 
 <script>
 
-const id = new URLSearchParams(location.search).get("id") || 1;
+// BACK BUTTON
+function goBack(){
+history.back();
+}
+
+// ID
+const id=new URLSearchParams(location.search).get("id")||1;
 
 // MAIN CARD
 document.getElementById("main").innerHTML=`
-<div class="big-card fade">
+<div class="big-card">
 
 <h2>Ringtone ${id}</h2>
 
@@ -48,7 +71,7 @@ document.getElementById("main").innerHTML=`
 </div>
 
 <div class="btns">
-<button onclick="download()">Download</button>
+<button class="download" onclick="download()">Download</button>
 <button>Share</button>
 <button>❤️ Save</button>
 </div>
@@ -78,7 +101,7 @@ const progress=document.getElementById("progress");
 const time=document.getElementById("time");
 
 function play(){
-audio.paused ? audio.play() : audio.pause();
+audio.paused?audio.play():audio.pause();
 }
 
 audio.ontimeupdate=()=>{
