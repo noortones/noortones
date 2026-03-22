@@ -1,6 +1,6 @@
 const songs = [
 { name:"La Tahzanu Ala Ringtone Dawnload", file:"La_Tahzanu_Ala_naat_Ringtone_By_NOOR_TONES.mp3", category:"naat" },
-{ name:"Naat 2", file:"tones/naat2.mp3", category:"naat" },
+{ name:"Ali Ali Ringtone Dawnload", file:"Ali_Ali_Mobile_Ringtone_By_NOOR_TONES.mp3", category:"naat" },
 { name:"Nasheed 1", file:"tones/nasheed1.mp3", category:"nasheed" },
 { name:"Arabic 1", file:"tones/arabic1.mp3", category:"arabic" },
 { name:"iPhone Tone", file:"tones/iphone1.mp3", category:"iphone" },
