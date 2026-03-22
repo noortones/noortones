@@ -2,7 +2,7 @@
 
 body{
 font-family:sans-serif;
-background:#F7FAF5;
+background:#eef2ee;
 }
 
 .container{
@@ -16,7 +16,7 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 background:linear-gradient(90deg,#006400,#008000);
-padding:18px;
+padding:15px;
 color:#fff;
 }
 
@@ -25,7 +25,12 @@ color:#D4AF37;
 font-weight:bold;
 }
 
-/* NAV */
+.nav{
+display:flex;
+gap:8px;
+flex-wrap:wrap;
+}
+
 .nav-btn{
 background:#D4AF37;
 color:#000;
@@ -33,14 +38,6 @@ padding:6px 10px;
 border-radius:6px;
 text-decoration:none;
 font-size:12px;
-}
-
-/* BACK */
-.back{
-background:#D4AF37;
-border:none;
-padding:6px 10px;
-border-radius:6px;
 }
 
 /* SEARCH */
@@ -81,11 +78,6 @@ border:2px solid #D4AF37;
 border-radius:12px;
 padding:12px;
 margin:10px;
-transition:0.3s;
-}
-
-.card:hover{
-transform:scale(1.02);
 }
 
 .play{
@@ -121,31 +113,35 @@ border-radius:12px;
 font-size:13px;
 cursor:pointer;
 font-weight:600;
-transition:all 0.3s ease;
+transition:0.3s;
 }
 
-/* DOWNLOAD GOLD */
 .download{
 background:linear-gradient(45deg,#D4AF37,#FFD700);
-color:#000;
-box-shadow:0 4px 10px rgba(212,175,55,0.4);
 }
 
-/* SHARE GREEN */
 .share{
 background:linear-gradient(45deg,#006400,#00a000);
 color:#fff;
-box-shadow:0 4px 10px rgba(0,100,0,0.4);
 }
 
-/* HOVER */
 button:hover{
 transform:scale(1.08);
-box-shadow:0 6px 15px rgba(0,0,0,0.25);
 }
 
-button:active{
-transform:scale(0.95);
+/* BIG CARD */
+.big-card{
+background:#fff;
+margin:15px;
+padding:20px;
+border-radius:16px;
+border:2px solid #D4AF37;
+text-align:center;
+}
+
+/* RELATED */
+#related{
+padding:10px;
 }
 
 /* ADS */
@@ -154,7 +150,6 @@ margin:10px;
 padding:12px;
 background:#eee;
 text-align:center;
-border-radius:10px;
 }
 
 /* FOOTER */
