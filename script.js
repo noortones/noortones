@@ -7,14 +7,12 @@ const songs = [
 { name:"Notification", file:"tones/noti1.mp3", category:"notification" }
 ];
 
-// duplicate to 100
 while(songs.length < 100){ songs.push(...songs); }
 songs.length = 100;
 
 const list = document.getElementById("list");
 let currentAudio = null;
 
-// HOME PAGE
 if(list){
 songs.forEach((s,i)=>{
 
@@ -35,9 +33,9 @@ list.innerHTML += `
 <audio id="audio${i}" src="${s.file}"></audio>
 </div>
 
-<div>
-<button class="download" onclick="openPage(${i})">⬇</button>
-<button class="share" onclick="sharePage(${i})">🔗</button>
+<div class="actions">
+<button class="download" onclick="openPage(${i})">⬇ Download</button>
+<button class="share" onclick="sharePage(${i})">Share 🔗</button>
 </div>
 
 </div>
@@ -115,8 +113,8 @@ main.innerHTML=`
 <audio id="player" src="${song.file}"></audio>
 
 <button onclick="player.play()">▶ Play</button>
-<button onclick="download()">⬇ Download</button>
-<button onclick="sharePage(${id})">Share</button>
+<button class="download" onclick="download()">⬇ Download</button>
+<button class="share" onclick="sharePage(${id})">Share 🔗</button>
 </div>
 `;
 
