@@ -1,0 +1,157 @@
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+font-family:sans-serif;
+background:#F7FAF5;
+overflow-x:hidden;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+}
+
+/* HEADER */
+.header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:#006400;
+padding:16px;
+}
+
+.logo{
+color:#D4AF37;
+font-weight:bold;
+}
+
+/* SEARCH */
+.search-box{
+padding:10px;
+position:relative;
+}
+
+.search-box input{
+width:100%;
+padding:12px;
+border-radius:25px;
+border:2px solid #D4AF37;
+}
+
+/* CARD */
+.card{
+display:flex;
+align-items:center;
+justify-content:space-between;
+background:#fff;
+border:2px solid #D4AF37;
+border-radius:12px;
+padding:10px;
+margin:10px;
+transition:0.3s;
+}
+
+.card:hover{
+transform:scale(1.02);
+}
+
+/* BIG CARD */
+.big-card{
+background:#fff;
+border:2px solid #D4AF37;
+border-radius:15px;
+padding:20px;
+margin:10px;
+text-align:center;
+}
+
+/* PLAY */
+.play{
+width:42px;
+height:42px;
+border-radius:50%;
+background:#006400;
+color:#fff;
+display:flex;
+align-items:center;
+justify-content:center;
+cursor:pointer;
+}
+
+/* INFO */
+.info{flex:1;margin:0 10px;}
+
+.title{
+font-weight:600;
+color:#006400;
+}
+
+/* PROGRESS */
+.progress-bar{
+height:5px;
+background:#ddd;
+border-radius:10px;
+overflow:hidden;
+}
+
+.progress{
+height:100%;
+width:0%;
+background:#006400;
+}
+
+.time{
+font-size:12px;
+color:#555;
+}
+
+/* CONTROLS */
+.controls{
+display:flex;
+align-items:center;
+gap:10px;
+margin-top:10px;
+}
+
+.bar{
+flex:1;
+height:6px;
+background:#ddd;
+border-radius:10px;
+overflow:hidden;
+}
+
+/* BUTTON */
+button{
+padding:6px 10px;
+border:none;
+border-radius:6px;
+}
+
+/* ADS */
+.ad{
+margin:10px;
+padding:12px;
+background:#e5e5e5;
+text-align:center;
+border-radius:10px;
+}
+
+/* FOOTER */
+.footer{
+background:#006400;
+color:#fff;
+text-align:center;
+padding:20px;
+margin-top:20px;
+}
+
+/* ANIMATION */
+.fade{
+animation:fade 0.5s ease;
+}
+
+@keyframes fade{
+from{opacity:0;transform:translateY(10px);}
+to{opacity:1;}
+}
