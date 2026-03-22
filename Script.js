@@ -1,6 +1,8 @@
 function render(list){
 
   const container = document.getElementById("list");
+  if(!container) return;
+
   container.innerHTML="";
 
   list.forEach((s,i)=>{
@@ -33,6 +35,8 @@ function render(list){
 
 function playAudio(i){
   let audio = document.getElementById("audio"+i);
+  if(!audio) return;
+
   audio.paused ? audio.play() : audio.pause();
 }
 
@@ -48,9 +52,16 @@ function filterTag(tag){
   }
 }
 
-document.getElementById("search").addEventListener("input",(e)=>{
-  let val = e.target.value.toLowerCase();
-  render(songs.filter(s=>s.name.toLowerCase().includes(val)));
-});
+// SEARCH SAFE
+const search = document.getElementById("search");
+if(search){
+  search.addEventListener("input",(e)=>{
+    let val = e.target.value.toLowerCase();
+    render(songs.filter(s=>s.name.toLowerCase().includes(val)));
+  });
+}
 
-render(songs);
+// INIT
+if(typeof songs !== "undefined"){
+  render(songs);
+}
