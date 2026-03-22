@@ -14,11 +14,9 @@
 <div class="container">
 
 <header class="header">
-  <div class="left">
-    <span class="logo">NOOR TONES</span>
-  </div>
+  <span class="logo">NOOR TONES</span>
 
-  <div class="right">
+  <div>
     <a href="index.html" class="nav-btn">Home</a>
     <a href="https://youtube.com" target="_blank" class="nav-btn">YouTube</a>
     <a href="https://instagram.com" target="_blank" class="nav-btn">Instagram</a>
@@ -29,102 +27,26 @@
   <input type="text" placeholder="Search ringtone...">
 </div>
 
+<!-- CATEGORIES -->
+<div class="categories">
+  <button onclick="filterCategory('all')">All</button>
+  <button onclick="filterCategory('naat')">Naat</button>
+  <button onclick="filterCategory('nasheed')">Nasheed</button>
+  <button onclick="filterCategory('arabic')">Arabic</button>
+  <button onclick="filterCategory('notification')">Notification</button>
+  <button onclick="filterCategory('iphone')">iPhone</button>
+</div>
+
 <div id="list"></div>
 
 <footer class="footer">
   <h2>Noor Tons</h2>
-  <p>
-    Free Islamic Ringtones, Naat, Nasheed, Azan tones download karein easily.
-  </p>
+  <p>Free Islamic Ringtones - Naat, Nasheed, Arabic, iPhone tones available.</p>
   <p>📧 noortones@email.com</p>
 </footer>
 
 </div>
 
-<script>
-
-const container = document.getElementById("list");
-let currentAudio = null;
-
-for(let i=1;i<=100;i++){
-
-container.innerHTML += `
-<div class="card">
-
-<div class="play" onclick="playAudio(${i},this)">▶</div>
-
-<div class="info">
-<div class="title">Ringtone ${i}</div>
-
-<div class="progress-bar">
-<div class="progress" id="progress${i}"></div>
-</div>
-
-<div class="time" id="time${i}">0:00</div>
-
-<audio id="audio${i}" src="tones/tone${(i%5)+1}.mp3"></audio>
-</div>
-
-<div class="actions">
-<button class="download" onclick="openPage(${i})">⬇ Download</button>
-<button class="share" onclick="sharePage(${i})">Share 🔗</button>
-</div>
-
-</div>
-`;
-
-if(i % 6 === 0){
-container.innerHTML += `<div class="ad">Ad Space</div>`;
-}
-
-}
-
-// PLAY
-function playAudio(i, btn){
-const audio = document.getElementById("audio"+i);
-const progress = document.getElementById("progress"+i);
-const time = document.getElementById("time"+i);
-
-if(currentAudio && currentAudio !== audio){
-currentAudio.pause();
-}
-
-if(audio.paused){
-audio.play();
-btn.innerText = "⏸";
-currentAudio = audio;
-}else{
-audio.pause();
-btn.innerText = "▶";
-}
-
-audio.ontimeupdate = ()=>{
-let p = (audio.currentTime / audio.duration) * 100;
-progress.style.width = p + "%";
-
-let s = Math.floor(audio.currentTime);
-time.innerText = "0:" + (s<10 ? "0"+s : s);
-};
-}
-
-// OPEN PAGE
-function openPage(id){
-location.href = "ringtone.html?id=" + id;
-}
-
-// SHARE
-function sharePage(id){
-const url = location.origin + "/ringtone.html?id=" + id;
-
-if(navigator.share){
-navigator.share({title:"Noor Tons", url:url});
-}else{
-navigator.clipboard.writeText(url);
-alert("Link copied!");
-}
-}
-
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
