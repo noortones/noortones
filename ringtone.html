@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Download Ringtone</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<header class="header">
+  NOOR TONES
+</header>
+
+<div id="main"></div>
+
+<div class="ad">Ad Space</div>
+
+<h3>Related</h3>
+<div id="related"></div>
+
+<div class="ad">Ad Space</div>
+
+</div>
+
+<script src="data.js"></script>
+
+<script>
+
+const id = new URLSearchParams(location.search).get("id");
+const s = songs.find(x=>x.id==id);
+
+// BIG CARD
+document.getElementById("main").innerHTML=`
+<div class="big">
+<h2>${s.name}</h2>
+
+<audio controls src="${s.file}"></audio>
+
+<button class="download" onclick="download('${s.file}')">Download</button>
+<button class="share">Share</button>
+<button class="save">❤️ Save</button>
+</div>
+`;
+
+// RELATED
+const rel=document.getElementById("related");
+
+songs.slice(0,10).forEach(item=>{
+  if(item.id!=id){
+    rel.innerHTML+=`
+    <div class="card" onclick="openPage(${item.id})">
+      ${item.name}
+    </div>`;
+  }
+});
+
+function openPage(i){
+  location.href="ringtone.html?id="+i;
+}
+
+function download(file){
+  alert("Ad loading...");
+  setTimeout(()=>{window.open(file)},1200);
+}
+
+</script>
+
+</body>
+</html>
