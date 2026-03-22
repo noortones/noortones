@@ -13,27 +13,33 @@
 
 <div class="container">
 
+<!-- HEADER -->
 <header class="header">
-  <div class="logo">NOOR TONES</div>
-  <div class="social">
+  <div class="left">
+    <span class="logo">NOOR TONES</span>
+  </div>
+
+  <div class="right">
+    <a href="index.html">🏠</a>
     <a href="#">📺</a>
     <a href="#">📸</a>
   </div>
 </header>
 
+<!-- SEARCH -->
 <div class="search-box">
   <input type="text" placeholder="Search ringtone...">
   <span>🔍</span>
 </div>
 
+<!-- LIST -->
 <div id="list"></div>
 
+<!-- FOOTER -->
 <footer class="footer">
   <h2>Noor Tons</h2>
-  <p>
-    Noor Tons ek premium Islamic ringtone website hai jahan aapko
-    high quality aur trending ringtones free milte hain.
-  </p>
+  <p>Free Islamic Ringtones download karein. Naat, Nasheed, Azan tones available.</p>
+  <p>📧 noortones@email.com</p>
 </footer>
 
 </div>
@@ -41,77 +47,73 @@
 <script>
 
 const container = document.getElementById("list");
-let currentAudio = null;
+let currentAudio=null;
 
 for(let i=1;i<=100;i++){
 
-container.innerHTML += `
-<div class="card fade">
+container.innerHTML+=`
+<div class="card">
 
-  <div class="play" onclick="playAudio(${i}, this)">▶</div>
+<div class="play" onclick="playAudio(${i},this)">▶</div>
 
-  <div class="info">
-    <div class="title">Ringtone ${i}</div>
+<div class="info">
+<div class="title">Ringtone ${i}</div>
 
-    <div class="progress-bar">
-      <div class="progress" id="progress${i}"></div>
-    </div>
+<div class="progress-bar">
+<div class="progress" id="progress${i}"></div>
+</div>
 
-    <div class="time" id="time${i}">0:00</div>
+<div class="time" id="time${i}">0:00</div>
 
-    <audio id="audio${i}" src="tones/tone${(i%5)+1}.mp3"></audio>
-  </div>
+<audio id="audio${i}" src="tones/tone${(i%5)+1}.mp3"></audio>
+</div>
 
-  <div class="actions">
-    <button onclick="openPage(${i})">⬇</button>
-    <button>🔗</button>
-    <button>❤️</button>
-  </div>
+<div class="actions">
+<button onclick="openPage(${i})">⬇</button>
+<button>🔗</button>
+<button>❤️</button>
+</div>
 
 </div>
 `;
 
 if(i%6===0){
-container.innerHTML += `<div class="ad">Ad Space</div>`;
+container.innerHTML+=`<div class="ad">Ad Space</div>`;
+}
 }
 
-}
+// PLAY
+function playAudio(i,btn){
 
-// PLAY SYSTEM
-function playAudio(i, btn){
+const audio=document.getElementById("audio"+i);
+const progress=document.getElementById("progress"+i);
+const time=document.getElementById("time"+i);
 
-const audio = document.getElementById("audio"+i);
-const progress = document.getElementById("progress"+i);
-const time = document.getElementById("time"+i);
-
-// stop old
-if(currentAudio && currentAudio !== audio){
+if(currentAudio && currentAudio!==audio){
 currentAudio.pause();
 }
 
 if(audio.paused){
 audio.play();
 btn.innerText="⏸";
-currentAudio = audio;
+currentAudio=audio;
 }else{
 audio.pause();
 btn.innerText="▶";
 }
 
-// progress
-audio.ontimeupdate = ()=>{
-let percent = (audio.currentTime/audio.duration)*100;
-progress.style.width = percent + "%";
+audio.ontimeupdate=()=>{
+let p=(audio.currentTime/audio.duration)*100;
+progress.style.width=p+"%";
 
-let sec = Math.floor(audio.currentTime);
-time.innerText = "0:" + (sec<10?"0"+sec:sec);
+let s=Math.floor(audio.currentTime);
+time.innerText="0:"+(s<10?"0"+s:s);
 };
-
 }
 
-// open page
+// OPEN PAGE
 function openPage(id){
-window.location.href="ringtone.html?id="+id;
+location.href="ringtone.html?id="+id;
 }
 
 </script>
