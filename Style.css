@@ -1,0 +1,100 @@
+body{
+  margin:0;
+  font-family:sans-serif;
+  background:#F7FAF5;
+}
+
+.container{
+  max-width:900px;
+  margin:auto;
+  padding:10px;
+}
+
+/* HEADER */
+.header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:#006400;
+  padding:15px;
+}
+
+.logo{
+  color:#D4AF37;
+  font-weight:bold;
+}
+
+.social a{
+  margin-left:10px;
+  text-decoration:none;
+}
+
+/* SEARCH */
+.search-box input{
+  width:100%;
+  padding:10px;
+  border-radius:20px;
+  border:2px solid #D4AF37;
+  margin:10px 0;
+}
+
+/* TAGS */
+.tags{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+
+.tags span{
+  background:#006400;
+  color:#fff;
+  padding:6px 10px;
+  border-radius:15px;
+}
+
+/* CARD */
+.card{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  background:#fff;
+  border:2px solid #D4AF37;
+  border-radius:12px;
+  padding:10px;
+  margin-bottom:10px;
+}
+
+/* PLAY */
+.play{
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  background:#006400;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* INFO */
+.info{
+  flex:1;
+  margin:0 10px;
+}
+
+/* BUTTON */
+.actions button{
+  margin-left:5px;
+  padding:5px;
+  border:none;
+  border-radius:5px;
+}
+
+/* ADS */
+.ad{
+  background:#ddd;
+  padding:10px;
+  text-align:center;
+  border-radius:10px;
+  margin:10px 0;
+}
