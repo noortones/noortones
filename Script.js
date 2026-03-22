@@ -34,14 +34,14 @@ function render(list){
 }
 
 function playAudio(i){
-  let audio = document.getElementById("audio"+i);
-  if(!audio) return;
-
-  audio.paused ? audio.play() : audio.pause();
+  const audio = document.getElementById("audio"+i);
+  if(audio){
+    audio.paused ? audio.play() : audio.pause();
+  }
 }
 
 function openPage(id){
-  location.href="ringtone.html?id="+id;
+  alert("Next page open hoga (abhi test hai)");
 }
 
 function filterTag(tag){
@@ -52,8 +52,8 @@ function filterTag(tag){
   }
 }
 
-// SEARCH SAFE
 const search = document.getElementById("search");
+
 if(search){
   search.addEventListener("input",(e)=>{
     let val = e.target.value.toLowerCase();
@@ -61,7 +61,6 @@ if(search){
   });
 }
 
-// INIT
-if(typeof songs !== "undefined"){
+window.onload = ()=>{
   render(songs);
-}
+};
