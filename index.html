@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#006400">
+<title>Noor Tons</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<header class="header">
+  <div class="logo">NOOR TONES</div>
+  <div class="social">
+    <a href="#">📺</a>
+    <a href="#">📸</a>
+  </div>
+</header>
+
+<div class="search-box">
+  <input type="text" placeholder="Search ringtone...">
+  <span>🔍</span>
+</div>
+
+<div id="list"></div>
+
+<footer class="footer">
+  <h2>Noor Tons</h2>
+  <p>
+    Noor Tons ek premium Islamic ringtone website hai jahan aapko
+    high quality aur trending ringtones free milte hain.
+  </p>
+</footer>
+
+</div>
+
+<script>
+
+const container = document.getElementById("list");
+let currentAudio = null;
+
+for(let i=1;i<=100;i++){
+
+container.innerHTML += `
+<div class="card fade">
+
+  <div class="play" onclick="playAudio(${i}, this)">▶</div>
+
+  <div class="info">
+    <div class="title">Ringtone ${i}</div>
+
+    <div class="progress-bar">
+      <div class="progress" id="progress${i}"></div>
+    </div>
+
+    <div class="time" id="time${i}">0:00</div>
+
+    <audio id="audio${i}" src="tones/tone${(i%5)+1}.mp3"></audio>
+  </div>
+
+  <div class="actions">
+    <button onclick="openPage(${i})">⬇</button>
+    <button>🔗</button>
+    <button>❤️</button>
+  </div>
+
+</div>
+`;
+
+if(i%6===0){
+container.innerHTML += `<div class="ad">Ad Space</div>`;
+}
+
+}
+
+// PLAY SYSTEM
+function playAudio(i, btn){
+
+const audio = document.getElementById("audio"+i);
+const progress = document.getElementById("progress"+i);
+const time = document.getElementById("time"+i);
+
+// stop old
+if(currentAudio && currentAudio !== audio){
+currentAudio.pause();
+}
+
+if(audio.paused){
+audio.play();
+btn.innerText="⏸";
+currentAudio = audio;
+}else{
+audio.pause();
+btn.innerText="▶";
+}
+
+// progress
+audio.ontimeupdate = ()=>{
+let percent = (audio.currentTime/audio.duration)*100;
+progress.style.width = percent + "%";
+
+let sec = Math.floor(audio.currentTime);
+time.innerText = "0:" + (sec<10?"0"+sec:sec);
+};
+
+}
+
+// open page
+function openPage(id){
+window.location.href="ringtone.html?id="+id;
+}
+
+</script>
+
+</body>
+</html>
