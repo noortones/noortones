@@ -2,41 +2,41 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Noor Tons</title>
-<link rel="stylesheet" href="style.css">
+<title>Test</title>
 </head>
 
 <body>
 
-<div class="container">
-
-<header class="header">
-  <div class="logo">NOOR TONES</div>
-  <div class="social">
-    <a href="#">📺</a>
-    <a href="#">📸</a>
-  </div>
-</header>
-
-<div class="search-box">
-  <input type="text" id="search" placeholder="Search ringtone...">
-</div>
-
-<div class="tags">
-  <span onclick="filterTag('All')">All</span>
-  <span onclick="filterTag('Naat')">Naat</span>
-  <span onclick="filterTag('Nasheed')">Nasheed</span>
-  <span onclick="filterTag('Trending')">Trending</span>
-  <span onclick="filterTag('iPhone')">iPhone</span>
-  <span onclick="filterTag('Notification')">Notification</span>
-</div>
+<h2>Cards Test</h2>
 
 <div id="list"></div>
 
-</div>
-
 <script src="data.js"></script>
-<script src="script.js"></script>
+
+<script>
+function render(){
+  const container = document.getElementById("list");
+
+  container.innerHTML = "";
+
+  songs.forEach((s)=>{
+    container.innerHTML += `
+      <div style="border:1px solid black; margin:5px; padding:10px;">
+        ${s.name}
+      </div>
+    `;
+  });
+}
+
+// WAIT थोड़ा (important)
+setTimeout(()=>{
+  if(typeof songs !== "undefined"){
+    render();
+  }else{
+    document.body.innerHTML += "❌ data.js load nahi hua";
+  }
+},200);
+</script>
 
 </body>
 </html>
