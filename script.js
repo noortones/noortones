@@ -4,7 +4,7 @@ const songs = [
 { name:"Eta Kulli Da Ringtone Dawnload", file:"Eta_Kulli_Da_Ringtone_By_NOOR_TONES.mp3", category:"Arabic" },
 { name:"Liyakun likyakun Nasheed Ringtone Dawnload", file:"Liyakun_Liyakun_Arabic_Best_Ringtone_By_NOOR_TONES.mp3", category:"Nasheed" },
 { name:"The Since Nasheed Ringtone Dawnload", file:"The_Sins_Nasheed_Ringtone_By_NOOR_TONES.mp3", category:"Nasheed" },
-{ name:"Notification", file:"tones/noti1.mp3", category:"notification" }
+{ name:"Ya Quluban NAsheed Ringtone Dawnload", file:"Ya_Quluban_Nasheed_Ringtone_By_NOOR_TONES.mp3", category:"Nasheed" }
 ];
 
 while(songs.length < 100){ songs.push(...songs); }
