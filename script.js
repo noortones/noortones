@@ -1,9 +1,9 @@
 const songs = [
-{ name:"La Tahzanu Ala Ringtone Dawnload", file:"La_Tahzanu_Ala_naat_Ringtone_By_NOOR_TONES.mp3", category:"naat" },
-{ name:"Ali Ali Ringtone Dawnload", file:"Ali_Ali_Mobile_Ringtone_By_NOOR_TONES.mp3", category:"naat" },
-{ name:"Eta Kulli Da Ringtone Dawnload", file:"Eta_Kulli_Da_Ringtone_By_NOOR_TONES.mp3", category:"arabic" },
+{ name:"La Tahzanu Ala Ringtone Dawnload", file:"La_Tahzanu_Ala_naat_Ringtone_By_NOOR_TONES.mp3", category:"Naat" },
+{ name:"Ali Ali Ringtone Dawnload", file:"Ali_Ali_Mobile_Ringtone_By_NOOR_TONES.mp3", category:"Naat" },
+{ name:"Eta Kulli Da Ringtone Dawnload", file:"Eta_Kulli_Da_Ringtone_By_NOOR_TONES.mp3", category:"Arabic" },
 { name:"Liyakun likyakun Nasheed Ringtone Dawnload", file:"Liyakun_Liyakun_Arabic_Best_Ringtone_By_NOOR_TONES.mp3", category:"Nasheed" },
-{ name:"iPhone Tone", file:"tones/iphone1.mp3", category:"iphone" },
+{ name:"The Since Nasheed Ringtone Dawnload", file:"The_Sins_Nasheed_Ringtone_By_NOOR_TONES.mp3", category:"Nasheed" },
 { name:"Notification", file:"tones/noti1.mp3", category:"notification" }
 ];
 
