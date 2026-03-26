@@ -1,18 +1,33 @@
-const songs = [
-{ name:"Naat 1", file:"tones/naat1.mp3", category:"naat" },
-{ name:"Naat 2", file:"tones/naat2.mp3", category:"naat" },
-{ name:"Nasheed 1", file:"tones/nasheed1.mp3", category:"nasheed" },
-{ name:"Arabic 1", file:"tones/arabic1.mp3", category:"arabic" },
-{ name:"iPhone Tone", file:"tones/iphone1.mp3", category:"iphone" },
-{ name:"Notification", file:"tones/noti1.mp3", category:"notification" }
-];
+// =======================
+// 🎧 AUTO SONG SYSTEM
+// =======================
+const songs = [];
 
-while(songs.length < 100){ songs.push(...songs); }
-songs.length = 100;
+for(let i=1; i<=100; i++){
+  songs.push({
+    name: "Ringtone " + i,
+    file: "tones/tone" + i + ".mp3",
+    category: getCategory(i)
+  });
+}
 
+function getCategory(i){
+  if(i<=20) return "naat";
+  if(i<=40) return "nasheed";
+  if(i<=60) return "arabic";
+  if(i<=80) return "iphone";
+  return "notification";
+}
+
+// =======================
+// 📦 GLOBAL
+// =======================
 const list = document.getElementById("list");
 let currentAudio = null;
 
+// =======================
+// 🏠 HOME PAGE LOAD
+// =======================
 if(list){
 songs.forEach((s,i)=>{
 
@@ -30,7 +45,7 @@ list.innerHTML += `
 
 <div class="time" id="time${i}">0:00</div>
 
-<audio id="audio${i}" src="${s.file}"></audio>
+<audio id="audio${i}" preload="none" src="${s.file}"></audio>
 </div>
 
 <div class="actions">
@@ -44,23 +59,28 @@ list.innerHTML += `
 if((i+1)%6===0){
 list.innerHTML += `<div class="ad">Ad Space</div>`;
 }
+
 });
 }
 
-// 🔥 FINAL AUDIO FIX
+// =======================
+// ▶ PLAY (OPTIMIZED)
+// =======================
 function playAudio(i,btn){
 
 const audio = document.getElementById("audio"+i);
 const progress = document.getElementById("progress"+i);
 const time = document.getElementById("time"+i);
 
+// stop old audio
 if(currentAudio && currentAudio !== audio){
 currentAudio.pause();
 }
 
+// play / pause
 if(audio.paused){
 audio.play().catch(()=>{
-alert("Tap again to play 🔊");
+alert("Tap again 🔊");
 });
 btn.innerText="⏸";
 currentAudio=audio;
@@ -69,6 +89,7 @@ audio.pause();
 btn.innerText="▶";
 }
 
+// progress
 audio.ontimeupdate=()=>{
 if(audio.duration){
 let p=(audio.currentTime/audio.duration)*100;
@@ -78,12 +99,19 @@ let s=Math.floor(audio.currentTime);
 time.innerText="0:"+(s<10?"0"+s:s);
 }
 };
+
 }
 
+// =======================
+// 🔗 OPEN PAGE
+// =======================
 function openPage(id){
 location.href="ringtone.html?id="+id;
 }
 
+// =======================
+// 📤 SHARE
+// =======================
 function sharePage(id){
 const url=location.origin+"/ringtone.html?id="+id;
 
@@ -95,20 +123,29 @@ alert("Link copied!");
 }
 }
 
+// =======================
+// 🔍 SEARCH
+// =======================
 document.querySelector("input")?.addEventListener("input",e=>{
 let val=e.target.value.toLowerCase();
+
 document.querySelectorAll(".card").forEach(c=>{
 c.style.display=c.innerText.toLowerCase().includes(val)?"flex":"none";
 });
 });
 
+// =======================
+// 📂 CATEGORY
+// =======================
 function filterCategory(cat){
 document.querySelectorAll(".card").forEach(card=>{
 card.style.display = (cat==="all"||card.dataset.cat===cat) ? "flex":"none";
 });
 }
 
-// DOWNLOAD PAGE
+// =======================
+// 🎧 DOWNLOAD PAGE
+// =======================
 const main=document.getElementById("main");
 
 if(main){
@@ -117,18 +154,24 @@ const song=songs[id];
 
 main.innerHTML=`
 <div class="big-card">
+
 <h2>${song.name}</h2>
-<audio controls src="${song.file}"></audio>
+
+<audio controls preload="none" src="${song.file}"></audio>
 
 <div class="actions">
 <button class="download" onclick="download()">⬇ Download</button>
 <button class="share" onclick="sharePage(${id})">Share 🔗</button>
 </div>
+
 </div>
 `;
 
 window.download=()=>{
 alert("Ad loading...");
-setTimeout(()=>window.open(song.file),1200);
+setTimeout(()=>{
+window.open(song.file);
+},1200);
 };
+
 }
