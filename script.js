@@ -1,22 +1,47 @@
 // =======================
-// 🎧 AUTO SONG SYSTEM
+// 🎧 AUTO FILE SYSTEM
 // =======================
+
+// 👉 जितनी files हैं उतनी range रख
+const totalSongs = 100;
+
 const songs = [];
 
-for(let i=1; i<=100; i++){
+for(let i=1; i<=totalSongs; i++){
+
+  let fileName = "tone" + i + ".mp3"; // default
+
   songs.push({
-    name: "Ringtone " + i,
-    file: "tones/tone" + i + ".mp3",
-    category: getCategory(i)
+    file: "tones/" + fileName,
+    name: formatName(fileName),
+    category: autoCategory(fileName)
   });
+
 }
 
-function getCategory(i){
-  if(i<=20) return "naat";
-  if(i<=40) return "nasheed";
-  if(i<=60) return "arabic";
-  if(i<=80) return "iphone";
-  return "notification";
+// =======================
+// 🧠 NAME FORMAT
+// =======================
+function formatName(file){
+return file
+.replace(".mp3","")
+.replace(/-/g," ")
+.replace(/\b\w/g,c=>c.toUpperCase());
+}
+
+// =======================
+// 📂 AUTO CATEGORY
+// =======================
+function autoCategory(file){
+
+file = file.toLowerCase();
+
+if(file.includes("naat")) return "naat";
+if(file.includes("nasheed")) return "nasheed";
+if(file.includes("iphone")) return "iphone";
+if(file.includes("arabic")) return "arabic";
+
+return "notification";
 }
 
 // =======================
@@ -28,7 +53,7 @@ let loaded = 0;
 const perLoad = 12;
 
 // =======================
-// 🏠 LOAD CARDS (LAZY)
+// 🏠 LOAD CARDS
 // =======================
 function loadSongs(){
 
@@ -70,10 +95,7 @@ list.innerHTML += `<div class="ad">Ad Space</div>`;
 loaded += perLoad;
 }
 
-// first load
-if(list){
-loadSongs();
-}
+if(list){ loadSongs(); }
 
 // =======================
 // 📜 SCROLL LOAD
@@ -85,7 +107,7 @@ loadSongs();
 });
 
 // =======================
-// ▶ PLAY (LOAD AUDIO ON CLICK)
+// ▶ PLAY
 // =======================
 function playAudio(i,btn){
 
@@ -93,17 +115,14 @@ const audio = document.getElementById("audio"+i);
 const progress = document.getElementById("progress"+i);
 const time = document.getElementById("time"+i);
 
-// 🎯 LOAD FILE ONLY WHEN CLICK
 if(!audio.src){
 audio.src = songs[i].file;
 }
 
-// stop old
 if(currentAudio && currentAudio !== audio){
 currentAudio.pause();
 }
 
-// play / pause
 if(audio.paused){
 audio.play().catch(()=>alert("Tap again 🔊"));
 btn.innerText="⏸";
@@ -113,7 +132,6 @@ audio.pause();
 btn.innerText="▶";
 }
 
-// progress
 audio.ontimeupdate=()=>{
 if(audio.duration){
 let p=(audio.currentTime/audio.duration)*100;
@@ -123,7 +141,6 @@ let s=Math.floor(audio.currentTime);
 time.innerText="0:"+(s<10?"0"+s:s);
 }
 };
-
 }
 
 // =======================
@@ -145,55 +162,4 @@ navigator.share({url});
 navigator.clipboard.writeText(url);
 alert("Link copied!");
 }
-}
-
-// =======================
-// 🔍 SEARCH
-// =======================
-document.querySelector("input")?.addEventListener("input",e=>{
-let val=e.target.value.toLowerCase();
-
-document.querySelectorAll(".card").forEach(c=>{
-c.style.display=c.innerText.toLowerCase().includes(val)?"flex":"none";
-});
-});
-
-// =======================
-// 📂 CATEGORY
-// =======================
-function filterCategory(cat){
-document.querySelectorAll(".card").forEach(card=>{
-card.style.display = (cat==="all"||card.dataset.cat===cat) ? "flex":"none";
-});
-}
-
-// =======================
-// 🎧 DOWNLOAD PAGE
-// =======================
-const main=document.getElementById("main");
-
-if(main){
-const id=new URLSearchParams(location.search).get("id")||0;
-const song=songs[id];
-
-main.innerHTML=`
-<div class="big-card">
-
-<h2>${song.name}</h2>
-
-<audio controls preload="none" src="${song.file}"></audio>
-
-<div class="actions">
-<button class="download" onclick="download()">⬇ Download</button>
-<button class="share" onclick="sharePage(${id})">Share 🔗</button>
-</div>
-
-</div>
-`;
-
-window.download=()=>{
-alert("Ad loading...");
-setTimeout(()=>window.open(song.file),1200);
-};
-
 }
