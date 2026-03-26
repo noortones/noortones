@@ -2,10 +2,12 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/12.11.0/fireba
 import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-database.js";
 
 const firebaseConfig = {
-  apiKey: "AIzaSy...",
+  apiKey: "AIzaSyCO918f489CV0N8O9oC4pTEnZX5n9RYUeI",
   authDomain: "noor--tones.firebaseapp.com",
-  projectId: "noor--tones",
   databaseURL: "https://noor--tones-default-rtdb.firebaseio.com/",
+  projectId: "noor--tones",
+  storageBucket: "noor--tones.firebasestorage.app",
+  messagingSenderId: "618513611591",
   appId: "1:618513611591:web:7591d35887caec60fe6a62"
 };
 
@@ -14,11 +16,16 @@ const db = getDatabase(app);
 
 const list = document.getElementById("list");
 
-// LOAD
 onValue(ref(db, "ringtones"), (snapshot) => {
 
 list.innerHTML = "";
+
 const data = snapshot.val();
+
+if(!data){
+list.innerHTML = "<h3 style='text-align:center'>No ringtones yet</h3>";
+return;
+}
 
 for(let id in data){
 
