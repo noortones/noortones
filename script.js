@@ -24,12 +24,17 @@ function getCategory(i){
 // =======================
 const list = document.getElementById("list");
 let currentAudio = null;
+let loaded = 0;
+const perLoad = 12;
 
 // =======================
-// 🏠 HOME PAGE LOAD
+// 🏠 LOAD CARDS (LAZY)
 // =======================
-if(list){
-songs.forEach((s,i)=>{
+function loadSongs(){
+
+for(let i=loaded; i<loaded+perLoad && i<songs.length; i++){
+
+let s = songs[i];
 
 list.innerHTML += `
 <div class="card" data-cat="${s.category}">
@@ -45,7 +50,7 @@ list.innerHTML += `
 
 <div class="time" id="time${i}">0:00</div>
 
-<audio id="audio${i}" preload="none" src="${s.file}"></audio>
+<audio id="audio${i}" preload="none"></audio>
 </div>
 
 <div class="actions">
@@ -60,11 +65,27 @@ if((i+1)%6===0){
 list.innerHTML += `<div class="ad">Ad Space</div>`;
 }
 
-});
+}
+
+loaded += perLoad;
+}
+
+// first load
+if(list){
+loadSongs();
 }
 
 // =======================
-// ▶ PLAY (OPTIMIZED)
+// 📜 SCROLL LOAD
+// =======================
+window.addEventListener("scroll", ()=>{
+if((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 200){
+loadSongs();
+}
+});
+
+// =======================
+// ▶ PLAY (LOAD AUDIO ON CLICK)
 // =======================
 function playAudio(i,btn){
 
@@ -72,16 +93,19 @@ const audio = document.getElementById("audio"+i);
 const progress = document.getElementById("progress"+i);
 const time = document.getElementById("time"+i);
 
-// stop old audio
+// 🎯 LOAD FILE ONLY WHEN CLICK
+if(!audio.src){
+audio.src = songs[i].file;
+}
+
+// stop old
 if(currentAudio && currentAudio !== audio){
 currentAudio.pause();
 }
 
 // play / pause
 if(audio.paused){
-audio.play().catch(()=>{
-alert("Tap again 🔊");
-});
+audio.play().catch(()=>alert("Tap again 🔊"));
 btn.innerText="⏸";
 currentAudio=audio;
 }else{
@@ -169,9 +193,7 @@ main.innerHTML=`
 
 window.download=()=>{
 alert("Ad loading...");
-setTimeout(()=>{
-window.open(song.file);
-},1200);
+setTimeout(()=>window.open(song.file),1200);
 };
 
 }
