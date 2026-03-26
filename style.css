@@ -10,7 +10,6 @@ max-width:900px;
 margin:auto;
 }
 
-/* HEADER */
 .header{
 display:flex;
 justify-content:space-between;
@@ -20,16 +19,9 @@ padding:15px;
 color:#fff;
 }
 
-.logo{
-color:#D4AF37;
-font-weight:bold;
-}
+.logo{color:#D4AF37;font-weight:bold;}
 
-.nav{
-display:flex;
-gap:8px;
-flex-wrap:wrap;
-}
+.nav{display:flex;gap:8px;flex-wrap:wrap;}
 
 .nav-btn{
 background:#D4AF37;
@@ -40,10 +32,7 @@ text-decoration:none;
 font-size:12px;
 }
 
-/* SEARCH */
-.search-box{
-padding:10px;
-}
+.search-box{padding:10px;}
 
 .search-box input{
 width:100%;
@@ -52,7 +41,6 @@ border-radius:25px;
 border:2px solid #D4AF37;
 }
 
-/* CATEGORY */
 .categories{
 display:flex;
 gap:8px;
@@ -68,7 +56,6 @@ border-radius:20px;
 border:none;
 }
 
-/* CARD */
 .card{
 display:flex;
 align-items:center;
@@ -89,23 +76,12 @@ display:flex;align-items:center;justify-content:center;
 
 .info{flex:1;}
 
-.progress-bar{
-height:5px;background:#ddd;border-radius:10px;
-}
-
-.progress{
-height:100%;background:#006400;width:0%;
-}
-
+.progress-bar{height:5px;background:#ddd;border-radius:10px;}
+.progress{height:100%;background:#006400;width:0%;}
 .time{font-size:12px;}
 
-/* ACTIONS */
-.actions{
-display:flex;
-gap:8px;
-}
+.actions{display:flex;gap:8px;}
 
-/* PREMIUM BUTTONS */
 button{
 padding:8px 14px;
 border:none;
@@ -125,11 +101,8 @@ background:linear-gradient(45deg,#006400,#00a000);
 color:#fff;
 }
 
-button:hover{
-transform:scale(1.08);
-}
+button:hover{transform:scale(1.08);}
 
-/* BIG CARD */
 .big-card{
 background:#fff;
 margin:15px;
@@ -139,12 +112,6 @@ border:2px solid #D4AF37;
 text-align:center;
 }
 
-/* RELATED */
-#related{
-padding:10px;
-}
-
-/* ADS */
 .ad{
 margin:10px;
 padding:12px;
@@ -152,7 +119,6 @@ background:#eee;
 text-align:center;
 }
 
-/* FOOTER */
 .footer{
 background:#006400;
 color:#fff;
