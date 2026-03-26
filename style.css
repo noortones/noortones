@@ -125,3 +125,6 @@ color:#fff;
 text-align:center;
 padding:20px;
 }
+.card{
+will-change: transform;
+}
