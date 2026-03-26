@@ -1,10 +1,10 @@
 const songs = [
-{ name:"La Tahzanu Ala Ringtone Dawnload", file:"La_Tahzanu_Ala_naat_Ringtone_By_NOOR_TONES.mp3", category:"Naat" },
-{ name:"Ali Ali Ringtone Dawnload", file:"Ali_Ali_Mobile_Ringtone_By_NOOR_TONES.mp3", category:"Naat" },
-{ name:"Eta Kulli Da Ringtone Dawnload", file:"Eta_Kulli_Da_Ringtone_By_NOOR_TONES.mp3", category:"Arabic" },
-{ name:"Liyakun likyakun Nasheed Ringtone Dawnload", file:"Liyakun_Liyakun_Arabic_Best_Ringtone_By_NOOR_TONES.mp3", category:"Nasheed" },
-{ name:"The Since Nasheed Ringtone Dawnload", file:"The_Sins_Nasheed_Ringtone_By_NOOR_TONES.mp3", category:"Nasheed" },
-{ name:"Ya Quluban NAsheed Ringtone Dawnload", file:"Ya_Quluban_Nasheed_Ringtone_By_NOOR_TONES.mp3", category:"Nasheed" }
+{ name:"Naat 1", file:"tones/naat1.mp3", category:"naat" },
+{ name:"Naat 2", file:"tones/naat2.mp3", category:"naat" },
+{ name:"Nasheed 1", file:"tones/nasheed1.mp3", category:"nasheed" },
+{ name:"Arabic 1", file:"tones/arabic1.mp3", category:"arabic" },
+{ name:"iPhone Tone", file:"tones/iphone1.mp3", category:"iphone" },
+{ name:"Notification", file:"tones/noti1.mp3", category:"notification" }
 ];
 
 while(songs.length < 100){ songs.push(...songs); }
@@ -44,22 +44,40 @@ list.innerHTML += `
 if((i+1)%6===0){
 list.innerHTML += `<div class="ad">Ad Space</div>`;
 }
-
 });
 }
 
+// 🔥 FINAL AUDIO FIX
 function playAudio(i,btn){
-const audio=document.getElementById("audio"+i);
 
-if(currentAudio && currentAudio!==audio){
+const audio = document.getElementById("audio"+i);
+const progress = document.getElementById("progress"+i);
+const time = document.getElementById("time"+i);
+
+if(currentAudio && currentAudio !== audio){
 currentAudio.pause();
 }
 
 if(audio.paused){
-audio.play(); btn.innerText="⏸"; currentAudio=audio;
+audio.play().catch(()=>{
+alert("Tap again to play 🔊");
+});
+btn.innerText="⏸";
+currentAudio=audio;
 }else{
-audio.pause(); btn.innerText="▶";
+audio.pause();
+btn.innerText="▶";
 }
+
+audio.ontimeupdate=()=>{
+if(audio.duration){
+let p=(audio.currentTime/audio.duration)*100;
+progress.style.width=p+"%";
+
+let s=Math.floor(audio.currentTime);
+time.innerText="0:"+(s<10?"0"+s:s);
+}
+};
 }
 
 function openPage(id){
@@ -90,7 +108,7 @@ card.style.display = (cat==="all"||card.dataset.cat===cat) ? "flex":"none";
 });
 }
 
-// RINGTONE PAGE
+// DOWNLOAD PAGE
 const main=document.getElementById("main");
 
 if(main){
@@ -99,30 +117,15 @@ const song=songs[id];
 
 main.innerHTML=`
 <div class="big-card">
-
 <h2>${song.name}</h2>
-
 <audio controls src="${song.file}"></audio>
 
 <div class="actions">
 <button class="download" onclick="download()">⬇ Download</button>
 <button class="share" onclick="sharePage(${id})">Share 🔗</button>
 </div>
-
 </div>
 `;
-
-const related=document.getElementById("related");
-
-for(let i=0;i<10;i++){
-if(i!=id){
-related.innerHTML += `
-<div class="card" onclick="openPage(${i})">
-${songs[i].name}
-</div>
-`;
-}
-}
 
 window.download=()=>{
 alert("Ad loading...");
