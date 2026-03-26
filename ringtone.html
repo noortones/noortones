@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Download</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+<h2>Noor Tones</h2>
+<a href="index.html">Back</a>
+</header>
+
+<div id="main"></div>
+
+<script>
+
+const url = new URLSearchParams(location.search);
+const file = url.get("file");
+const name = url.get("name");
+
+document.getElementById("main").innerHTML = `
+<h2>${name}</h2>
+<audio controls src="${file}"></audio><br><br>
+<a href="${file}" download>⬇ Download</a>
+`;
+
+</script>
+
+</body>
+</html>
